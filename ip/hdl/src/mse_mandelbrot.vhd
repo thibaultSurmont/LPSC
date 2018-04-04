@@ -120,6 +120,23 @@ architecture rtl of mse_mandelbrot is
             VidOnxSI     : in  std_logic;
             DataxDO      : out std_logic_vector(((C_PIXEL_SIZE * 3) - 1) downto 0));
     end component image_generator;
+    
+    component mandelbrot_calculator is
+        generic (   point_pos :     integer := 12; -- nombre de bits après la virgule
+                    max_iter :      integer := 100;
+                    SIZE :          integer := 16);
+        port (
+                    clk :           in  std_logic;
+                    rst :           in  std_logic;
+                    ready :         out std_logic;
+                    start :         in  std_logic;
+                    finished :      out std_logic;
+                    c_real :        in  std_logic_vector(SIZE-1 downto 0);
+                    c_imaginary :   in  std_logic_vector(SIZE-1 downto 0);
+                    z_real :        out std_logic_vector(SIZE-1 downto 0);
+                    z_imaginary :   out std_logic_vector(SIZE-1 downto 0);
+                    iterations :    out std_logic_vector(SIZE-1 downto 0));
+    end component mandelbrot_calculator;
 
     -- Pll Locked
     signal PllLockedxS    : std_logic                                           := '0';
@@ -236,5 +253,25 @@ begin  -- architecture rtl
                 DataxDO      => DataxD);
 
     end block ImageGeneratorxB;
+    
+    ---------------------------------------------------------------------------
+    -- Mandelbrot Calculator
+    ---------------------------------------------------------------------------
+    MandelbrotCalculator : entity work.mandelbrot_calculator
+        generic map (
+            point_pos   => 12,
+            max_iter    => 100,
+            SIZE        => 16)
+        port map (
+            clk         => ClkSys100MhzxC,
+            rst         => RstxR,
+            ready       => open,
+            start       => '0',
+            finished    => open,
+            c_real      => (others=>'0'),
+            c_imaginary => (others=>'0'),
+            z_real      => open,
+            z_imaginary => open,
+            iterations  => open);
 
 end architecture rtl;

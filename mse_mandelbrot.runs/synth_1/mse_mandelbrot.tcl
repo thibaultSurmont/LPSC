@@ -141,29 +141,34 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/mse_mandelbrot.cache/wt [current_project]
-set_property parent.project_path /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/mse_mandelbrot.xpr [current_project]
+set_property webtalk.parent_dir /home/quartus/workspace/LPSC/mse_mandelbrot.cache/wt [current_project]
+set_property parent.project_path /home/quartus/workspace/LPSC/mse_mandelbrot.xpr [current_project]
 set_property XPM_LIBRARIES XPM_CDC [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/mse_mandelbrot.cache/ip [current_project]
+set_property ip_output_repo /home/quartus/workspace/LPSC/mse_mandelbrot.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_vhdl -library xil_defaultlib /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/ip/hdl/src/hdmi_interface_pkg.vhd
-read_vhdl -vhdl2008 -library xil_defaultlib {
-  /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/ip/hdl/src/vga_stripes.vhd
-  /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/ip/hdl/src/vga_controler.vhd
-  /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/ip/hdl/src/vga.vhd
-  /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/ip/hdl/src/tmds_encoder.vhd
-  /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/ip/hdl/src/serializer_10_to_1.vhd
-  /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/ip/hdl/src/vga_to_hdmi.vhd
-  /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/ip/hdl/src/hdmi.vhd
-  /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/ip/hdl/src/image_generator.vhd
-  /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/ip/hdl/src/mse_mandelbrot.vhd
+read_vhdl -library xil_defaultlib {
+  /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd
+  /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd
+  /home/quartus/workspace/LPSC/ip/hdl/src/hdmi_interface_pkg.vhd
+  /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd
 }
-read_ip -quiet /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.xci
-set_property used_in_implementation false [get_files -all /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_board.xdc]
-set_property used_in_implementation false [get_files -all /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.xdc]
-set_property used_in_implementation false [get_files -all /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_ooc.xdc]
+read_vhdl -vhdl2008 -library xil_defaultlib {
+  /home/quartus/workspace/LPSC/ip/hdl/src/vga_stripes.vhd
+  /home/quartus/workspace/LPSC/ip/hdl/src/vga_controler.vhd
+  /home/quartus/workspace/LPSC/ip/hdl/src/vga.vhd
+  /home/quartus/workspace/LPSC/ip/hdl/src/tmds_encoder.vhd
+  /home/quartus/workspace/LPSC/ip/hdl/src/serializer_10_to_1.vhd
+  /home/quartus/workspace/LPSC/ip/hdl/src/vga_to_hdmi.vhd
+  /home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd
+  /home/quartus/workspace/LPSC/ip/hdl/src/image_generator.vhd
+  /home/quartus/workspace/LPSC/ip/hdl/src/mse_mandelbrot.vhd
+}
+read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.xci
+set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_board.xdc]
+set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.xdc]
+set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -173,8 +178,8 @@ set_property used_in_implementation false [get_files -all /home/joco/Documents/c
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/constr/Nexys-Video-Master.xdc
-set_property used_in_implementation false [get_files /home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot_no_bram/constr/Nexys-Video-Master.xdc]
+read_xdc /home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc
+set_property used_in_implementation false [get_files /home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc]
 
 
 synth_design -top mse_mandelbrot -part xc7a200tsbg484-1

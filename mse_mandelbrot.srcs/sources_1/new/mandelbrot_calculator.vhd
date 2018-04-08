@@ -33,7 +33,7 @@ use ieee.numeric_std.all;
 --use UNISIM.VComponents.all;
 
 entity mandelbrot_calculator is
-    generic (   point_pos :         integer := 12; -- nombre de bits après la virgule
+    generic (   point_pos :     integer := 12; -- nombre de bits après la virgule
                 max_iter :      integer := 100;
                 SIZE :          integer := 16);
     port (
@@ -52,23 +52,28 @@ end mandelbrot_calculator;
 architecture Behavioral of mandelbrot_calculator is
     
     function mult (val1, val2 : std_logic_vector; vector_size, fix_point_pos : integer) return std_logic_vector is
+    
         variable mult : std_logic_vector(vector_size*2-1 downto 0);
         variable lsb :  integer := fix_point_pos;
         variable msb :  integer := vector_size-1 + fix_point_pos;
+        
     begin
+    
         mult := std_logic_vector(unsigned(val1)*unsigned(val2));
         return mult(msb downto lsb);
     end mult;
     
     function square (val : std_logic_vector; vector_size, fix_point_pos : integer) return std_logic_vector is
     begin
+    
         return mult(val, val, vector_size, fix_point_pos);
     end square;
     
     function int2stdLogicVector (int, length : integer) return std_logic_vector is
-        begin
-            return std_logic_vector(to_unsigned(int, length));
-        end int2stdLogicVector;
+    begin
+    
+        return std_logic_vector(to_unsigned(int, length));
+    end int2stdLogicVector;
     
     -- Build an enumerated type for the state machine
     type state_type is (RESET_STATE, READY_STATE, COMPUTE_STATE, FINISH_STATE);
@@ -81,25 +86,28 @@ architecture Behavioral of mandelbrot_calculator is
         port (
                     clk :           in  std_logic;
                     rst :           in  std_logic;
-                    en :           in  std_logic;
+                    en :            in  std_logic;
                     clr :           in  std_logic;
                     counter :       out std_logic_vector(SIZE-1 downto 0));
     end component generic_counter;
     -- Counter signals
-    signal s_en :       std_logic;
-    signal s_clr :      std_logic;
     signal s_counter :  std_logic_vector(SIZE-1 downto 0);
     
-    -- Instatiation of counter
+    -- Instatiation of register
     component generic_register is
         generic(    SIZE :          integer := 16);
         port(
                     clk :           in  std_logic;
                     rst :           in  std_logic;
+                    en :            in  std_logic;
                     clr :           in  std_logic;
                     data_in :       in  std_logic_vector(SIZE-1 downto 0);
                     data_out :      out std_logic_vector(SIZE-1 downto 0));
     end component generic_register;
+    
+    -- Enable & Clear signals for counter and registers
+    signal s_en :       std_logic;
+    signal s_clr :      std_logic;
     
     -- Computation signals
     signal s_real_reg_in :          std_logic_vector(SIZE-1 downto 0);
@@ -134,6 +142,7 @@ begin
         port map (
             clk         => clk,
             rst         => rst,
+            en          => s_en,
             clr         => s_clr,
             data_in     => s_real_reg_in,
             data_out    => s_real_reg_out);
@@ -147,9 +156,15 @@ begin
         port map (
             clk         => clk,
             rst         => rst,
+            en          => s_en,
             clr         => s_clr,
             data_in     => s_imaginary_reg_in,
             data_out    => s_imaginary_reg_out);
+            
+    ---------------------------------------------------------------------------
+    -- Control signals
+    ---------------------------------------------------------------------------
+            
             
     ---------------------------------------------------------------------------
     -- Computation block
@@ -157,16 +172,17 @@ begin
     s_real2             <= square(s_real_reg_out, SIZE, point_pos);
     s_imaginary2        <= square(s_imaginary_reg_out, SIZE, point_pos);
     s_real_reg_in       <= std_logic_vector(unsigned(s_real2) - unsigned(s_imaginary2) + unsigned(c_real));
-    s_2mult             <= std_logic_vector(unsigned(mult(s_real_reg_out, s_imaginary_reg_out, SIZE, point_pos)) srl 1);
+    s_2mult             <= std_logic_vector(unsigned(mult(s_real_reg_out, s_imaginary_reg_out, SIZE, point_pos)) sll 1);
     s_imaginary_reg_in  <= std_logic_vector(unsigned(s_2mult) + unsigned(c_imaginary));
-    z_real              <= s_real_reg_out;
-    z_imaginary         <= s_imaginary_reg_out;
+    -- Result of computation
+    z_real      <= s_real_reg_out when state = COMPUTE_STATE;
+    z_imaginary <= s_imaginary_reg_out when state = COMPUTE_STATE;
     
     ---------------------------------------------------------------------------
-    -- Iterations computing
+    -- Iterations counter
     ---------------------------------------------------------------------------
-    iterations <=   s_counter when s_counter <= int2stdLogicVector(max_iter, s_counter'length) else 
-                    (others=>'0');
+    iterations <=   s_counter       when state = COMPUTE_STATE else
+                    (others=>'0')   when s_counter > int2stdLogicVector(max_iter, s_counter'length);
     
     ---------------------------------------------------------------------------
     -- Mealy state machine
@@ -193,7 +209,7 @@ begin
                     if s_counter > int2stdLogicVector(max_iter, s_counter'length) then
                         state <= FINISH_STATE;
                     -- Compare Zr² + Zi² > 4
-                    elsif (unsigned(s_real2) + unsigned(s_imaginary2)) > (to_unsigned(4, 3) srl point_pos) then
+                    elsif (unsigned(s_real2) + unsigned(s_imaginary2)) > (to_unsigned(4, SIZE) sll 12)  then
                         state <= FINISH_STATE;
                     else
                         state <= COMPUTE_STATE;
@@ -204,10 +220,9 @@ begin
         end if;
     end process;
     
-    Mealy_state_machine_async:
+    Moore_state_machine_state_change:
     -- Determine the output based only on the current state
-    -- and the input (do not wait for a clock edge).
-    process (state, s_counter)
+    process (state)
     begin
         case state is
             when RESET_STATE =>
@@ -215,15 +230,14 @@ begin
             when READY_STATE =>
                 -- All outputs and registers are cleared
                 finished    <= '0';
-                s_en        <= '0';     -- counter disabled
+                s_en        <= '0';
                 s_clr       <= '0';
-                iterations  <= (others=>'0');
                 -- ready set (waiting for start cmd)
                 ready       <= '1';
             when COMPUTE_STATE =>
                 -- ready cleared
                 ready       <= '0';
-                -- counter enabled
+                -- Counter & registers enabled
                 s_en        <= '1';
             when FINISH_STATE =>
                 -- finished set (result available)

@@ -37,6 +37,7 @@ entity generic_register is
     port(
                 clk :           in  std_logic;
                 rst :           in  std_logic;
+                en :            in  std_logic;
                 clr :           in  std_logic;
                 data_in :       in  std_logic_vector(SIZE-1 downto 0);
                 data_out :      out std_logic_vector(SIZE-1 downto 0));
@@ -49,12 +50,17 @@ begin
     process(clk)
     begin
         if rising_edge(clk) then
-            if rst = '1' or clr = '1' then
-                -- reset or clear synchrone
+            if rst = '1' then
+                -- reset synchrone
                 data_out <= (others=>'0');
-            else
-                -- update output
-                data_out <= data_in;
+            elsif en = '1' then
+                if clr = '1' then
+                    -- clear synchrone
+                    data_out <= (others=>'0');
+                else
+                    -- update output
+                    data_out <= data_in;
+                end if;
             end if; 
         end if;        
     end process;

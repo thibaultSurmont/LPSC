@@ -43,8 +43,8 @@ architecture testbench of tb_mandelbrot_calculator is
     constant MAX_ITERATION :    integer := 100;
     constant VECTOR_SIZE :      integer := 16;
     
-    constant C_REAL :       std_logic_vector(VECTOR_SIZE-1 downto 0) := X"05FF";
-    constant C_IMAGINARY :  std_logic_vector(VECTOR_SIZE-1 downto 0) := X"05FF";
+    constant C_REAL :       std_logic_vector(VECTOR_SIZE-1 downto 0) := X"0800";
+    constant C_IMAGINARY :  std_logic_vector(VECTOR_SIZE-1 downto 0) := X"0400";
     
     component mandelbrot_calculator is
         generic (   point_pos :     integer := 12; -- nombre de bits après la virgule

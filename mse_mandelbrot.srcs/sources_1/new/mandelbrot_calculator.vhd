@@ -59,7 +59,7 @@ architecture Behavioral of mandelbrot_calculator is
         
     begin
     
-        mult := std_logic_vector(unsigned(val1)*unsigned(val2));
+        mult := std_logic_vector(signed(val1)*signed(val2));
         return mult(msb downto lsb);
     end mult;
     
@@ -171,9 +171,9 @@ begin
     ---------------------------------------------------------------------------
     s_real2             <= square(s_real_reg_out, SIZE, point_pos);
     s_imaginary2        <= square(s_imaginary_reg_out, SIZE, point_pos);
-    s_real_reg_in       <= std_logic_vector(unsigned(s_real2) - unsigned(s_imaginary2) + unsigned(c_real));
-    s_2mult             <= std_logic_vector(unsigned(mult(s_real_reg_out, s_imaginary_reg_out, SIZE, point_pos)) sll 1);
-    s_imaginary_reg_in  <= std_logic_vector(unsigned(s_2mult) + unsigned(c_imaginary));
+    s_real_reg_in       <= std_logic_vector(signed(s_real2) - signed(s_imaginary2) + signed(c_real));
+    s_2mult             <= std_logic_vector(signed(mult(s_real_reg_out, s_imaginary_reg_out, SIZE, point_pos)) sll 1);
+    s_imaginary_reg_in  <= std_logic_vector(signed(s_2mult) + signed(c_imaginary));
     -- Result of computation
     z_real      <= s_real_reg_out when state = COMPUTE_STATE;
     z_imaginary <= s_imaginary_reg_out when state = COMPUTE_STATE;

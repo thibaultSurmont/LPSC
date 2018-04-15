@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir /home/quartus/workspace/LPSC/mse_mandelbrot.sim/sim_1/behav/xsim/xsim.dir/tb_mandelbrot_calculator_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Mon Apr  9 21:32:37 2018" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Tue Apr 10 20:44:44 2018" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2017.4 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2086221" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "LIN64" -context "software_version_and_target_device"
@@ -12,13 +12,13 @@ webtalk_add_data -client project -key target_family -value "not_applicable" -con
 webtalk_add_data -client project -key target_device -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key target_package -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
-webtalk_add_data -client project -key random_id -value "fe77e70c-dacb-41c7-80cd-9623d71b4878" -context "software_version_and_target_device"
+webtalk_add_data -client project -key random_id -value "d9777915-5066-43b2-97c6-7268098e466e" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "48f417b18c744a1fab1dc15364498564" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "121" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "4" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Debian" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "Debian GNU/Linux 9.3 (stretch)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-3740QM CPU @ 2.70GHz" -context "user_environment"
-webtalk_add_data -client project -key cpu_speed -value "1678.436 MHz" -context "user_environment"
+webtalk_add_data -client project -key cpu_speed -value "1910.137 MHz" -context "user_environment"
 webtalk_add_data -client project -key total_processors -value "1" -context "user_environment"
 webtalk_add_data -client project -key system_ram -value "8.000 GB" -context "user_environment"
 webtalk_register_client -client xsim
@@ -26,7 +26,7 @@ webtalk_add_data -client xsim -key Command -value "xsim" -context "xsim\\command
 webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\usage"
 webtalk_add_data -client xsim -key runtime -value "2 us" -context "xsim\\usage"
 webtalk_add_data -client xsim -key iteration -value "1" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Time -value "0.01_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Time -value "0.02_sec" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Simulation_Memory -value "136760_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 3687981210 -regid "" -xml /home/quartus/workspace/LPSC/mse_mandelbrot.sim/sim_1/behav/xsim/xsim.dir/tb_mandelbrot_calculator_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/quartus/workspace/LPSC/mse_mandelbrot.sim/sim_1/behav/xsim/xsim.dir/tb_mandelbrot_calculator_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/quartus/workspace/LPSC/mse_mandelbrot.sim/sim_1/behav/xsim/xsim.dir/tb_mandelbrot_calculator_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_transmit -clientid 2448034646 -regid "" -xml /home/quartus/workspace/LPSC/mse_mandelbrot.sim/sim_1/behav/xsim/xsim.dir/tb_mandelbrot_calculator_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/quartus/workspace/LPSC/mse_mandelbrot.sim/sim_1/behav/xsim/xsim.dir/tb_mandelbrot_calculator_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/quartus/workspace/LPSC/mse_mandelbrot.sim/sim_1/behav/xsim/xsim.dir/tb_mandelbrot_calculator_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

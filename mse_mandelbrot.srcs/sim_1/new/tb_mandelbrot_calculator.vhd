@@ -44,7 +44,7 @@ architecture testbench of tb_mandelbrot_calculator is
     constant VECTOR_SIZE :      integer := 16;
     
     constant C_REAL :       std_logic_vector(VECTOR_SIZE-1 downto 0) := X"0800";
-    constant C_IMAGINARY :  std_logic_vector(VECTOR_SIZE-1 downto 0) := X"0400";
+    constant C_IMAGINARY :  std_logic_vector(VECTOR_SIZE-1 downto 0) := X"FBFF";
     
     component mandelbrot_calculator is
         generic (   point_pos :     integer := 12; -- nombre de bits après la virgule

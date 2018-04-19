@@ -52,11 +52,6 @@ architecture Behavioral of constants_generator is
     begin
         return std_logic_vector(to_signed(int, vector_size) sll fix_point_pos);
     end int2FixPointIntPart;
-    
-    function int2FixPointDecPart (int : integer; fix_point_pos : integer; vector_size : integer) return std_logic_vector is
-    begin
-        return std_logic_vector(to_signed(int, vector_size) srl (vector_size-fix_point_pos));
-    end int2FixPointDecPart;
 
     -- Constants
     constant SCREEN_SIZE_X :    integer := 1024;
@@ -65,11 +60,11 @@ architecture Behavioral of constants_generator is
     constant C_REAL_MAX :       integer := 1;
     constant C_IMAG_MIN :       integer := -1;
     constant C_IMAG_MAX :       integer := 1;
-    constant DELTA_C_REAL_INT : integer := integer(real(SCREEN_SIZE_X / (C_REAL_MAX - C_REAL_MIN)) * real(2**point_pos));
-    constant DELTA_C_IMAG_INT : integer := integer(real(SCREEN_SIZE_Y / (C_IMAG_MAX - C_IMAG_MIN)) * real(2**point_pos));
+    constant DELTA_C_REAL_INT : integer := integer(real(real(C_REAL_MAX - C_REAL_MIN) * real(2**point_pos) / real(SCREEN_SIZE_X)));
+    constant DELTA_C_IMAG_INT : integer := integer(real(real(C_IMAG_MAX - C_IMAG_MIN) * real(2**point_pos) / real(SCREEN_SIZE_Y)));
     
-    constant DELTA_C_REAL :     std_logic_vector(SIZE-1 downto 0) := int2FixPointDecPart(DELTA_C_REAL_INT, point_pos, SIZE);
-    constant DELTA_C_IMAG :     std_logic_vector(SIZE-1 downto 0) := int2FixPointDecPart(DELTA_C_IMAG_INT, point_pos, SIZE);
+    constant DELTA_C_REAL :     std_logic_vector(SIZE-1 downto 0) := std_logic_vector(to_signed(DELTA_C_REAL_INT, SIZE));
+    constant DELTA_C_IMAG :     std_logic_vector(SIZE-1 downto 0) := std_logic_vector(to_signed(DELTA_C_IMAG_INT, SIZE));
     
     -- Signals
     signal s_c_real :       std_logic_vector(SIZE-1 downto 0);
@@ -104,31 +99,31 @@ begin
             
                 -- Do nothing after reset
                 if s_after_reset = '0' then
-                
-                    -- Next Y axis & C imaginary
-                    if s_y < std_logic_vector(to_unsigned(SCREEN_SIZE_Y, s_y'length)) then
                     
-                        -- Next X axis & C real
-                        if s_x < std_logic_vector(to_unsigned(SCREEN_SIZE_X, s_x'length)) then
-                        
-                            s_x         <= std_logic_vector(unsigned(s_x) + 1);
-                            s_c_real    <= std_logic_vector(signed(s_c_real) + signed(DELTA_C_REAL));
-                        
-                        else
-                        
-                            s_x         <= (others => '0');
-                            s_c_real    <= std_logic_vector(to_signed(C_REAL_MIN, SIZE));
-                            
-                            s_y         <= std_logic_vector(unsigned(s_y) + 1);
-                            s_c_imag    <= std_logic_vector(signed(s_c_imag) + signed(DELTA_C_REAL));
-                        
-                        end if;
-                        
-                    -- End of Screen
+                    -- Next X axis & C real
+                    if s_x < std_logic_vector(to_unsigned(SCREEN_SIZE_X-1, s_x'length)) then
+                    
+                        s_x         <= std_logic_vector(unsigned(s_x) + 1);
+                        s_c_real    <= std_logic_vector(signed(s_c_real) + signed(DELTA_C_REAL));
+                    
                     else
                     
-                       s_y      <= (others => '0');
-                       s_c_imag <= std_logic_vector(to_signed(C_IMAG_MAX, SIZE));
+                        s_x         <= (others => '0');
+                        s_c_real    <= int2FixPointIntPart(C_REAL_MIN, point_pos, SIZE);
+                        
+                        -- Next Y axis & C imaginary
+                        if s_y < std_logic_vector(to_unsigned(SCREEN_SIZE_Y-1, s_y'length)) then
+                        
+                            s_y         <= std_logic_vector(unsigned(s_y) + 1);
+                            s_c_imag    <= std_logic_vector(signed(s_c_imag) - signed(DELTA_C_IMAG));
+                            
+                        -- End of Screen
+                        else
+                        
+                           s_y      <= (others => '0');
+                           s_c_imag <= int2FixPointIntPart(C_IMAG_MAX, point_pos, SIZE);
+                        
+                        end if;
                     
                     end if;
                     

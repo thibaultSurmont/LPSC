@@ -1,0 +1,10 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/generic_register.vhd" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd" \
+"../../../../mse_mandelbrot.srcs/sim_1/new/tb_mandelbrot.vhd" \
+
+# Do not sort compile order
+nosort

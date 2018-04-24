@@ -79,6 +79,9 @@ architecture rtl of mse_mandelbrot is
     constant C_BRAM_VIDEO_MEMORY_HIGH_ADDR_SIZE : integer := 10;
     constant C_BRAM_VIDEO_MEMORY_LOW_ADDR_SIZE  : integer := 10;
     constant C_BRAM_VIDEO_MEMORY_DATA_SIZE      : integer := 9;
+    
+    constant C_POINT_POS                        : integer := 12;
+    constant C_MAX_ITER                         : integer := 100;
 
     component hdmi is
         generic (
@@ -105,21 +108,34 @@ architecture rtl of mse_mandelbrot is
             HdmiTxPxDO     : out   std_logic_vector((C_CHANNEL_NUMBER - 2) downto 0);
             HdmiTxNxDO     : out   std_logic_vector((C_CHANNEL_NUMBER - 2) downto 0));
     end component hdmi;
-
-    component image_generator is
-        generic (
-            C_DATA_SIZE  : integer;
-            C_PIXEL_SIZE : integer;
-            C_VGA_CONFIG : t_VgaConfig);
+    
+    component blk_mem_iter is
         port (
-            ClkVgaxC     : in  std_logic;
-            RstxRA       : in  std_logic;
-            PllLockedxSI : in  std_logic;
-            HCountxDI    : in  std_logic_vector((C_DATA_SIZE - 1) downto 0);
-            VCountxDI    : in  std_logic_vector((C_DATA_SIZE - 1) downto 0);
-            VidOnxSI     : in  std_logic;
-            DataxDO      : out std_logic_vector(((C_PIXEL_SIZE * 3) - 1) downto 0));
-    end component image_generator;
+            clka :  IN STD_LOGIC;
+            ena :   IN STD_LOGIC;
+            wea :   IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+            addra : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
+            dina :  IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+            clkb :  IN STD_LOGIC;
+            enb :   IN STD_LOGIC;
+            addrb : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
+            doutb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
+    end component blk_mem_iter;
+
+--    component image_generator is
+--        generic (
+--            C_DATA_SIZE  : integer;
+--            C_PIXEL_SIZE : integer;
+--            C_VGA_CONFIG : t_VgaConfig);
+--        port (
+--            ClkVgaxC     : in  std_logic;
+--            RstxRA       : in  std_logic;
+--            PllLockedxSI : in  std_logic;
+--            HCountxDI    : in  std_logic_vector((C_DATA_SIZE - 1) downto 0);
+--            VCountxDI    : in  std_logic_vector((C_DATA_SIZE - 1) downto 0);
+--            VidOnxSI     : in  std_logic;
+--            DataxDO      : out std_logic_vector(((C_PIXEL_SIZE * 3) - 1) downto 0));
+--    end component image_generator;
     
     component mandelbrot_calculator is
         generic (   point_pos :     integer := 12; -- nombre de bits après la virgule
@@ -137,6 +153,20 @@ architecture rtl of mse_mandelbrot is
                     z_imaginary :   out std_logic_vector(SIZE-1 downto 0);
                     iterations :    out std_logic_vector(SIZE-1 downto 0));
     end component mandelbrot_calculator;
+    
+    component constants_generator is
+        generic (   point_pos :     integer := 12; -- nombre de bits après la virgule
+                    SIZE :          integer := 16);
+        port (
+                    clk :           in  std_logic;
+                    rst :           in  std_logic;
+                    ready :         in  std_logic;
+                    finished :      out std_logic;
+                    screen_x :      out std_logic_vector(9 downto 0);
+                    screen_y :      out std_logic_vector(9 downto 0);
+                    c_real :        out std_logic_vector(SIZE-1 downto 0);
+                    c_imaginary :   out std_logic_vector(SIZE-1 downto 0));
+    end component constants_generator;
 
     -- Pll Locked
     signal PllLockedxS    : std_logic                                           := '0';
@@ -150,6 +180,21 @@ architecture rtl of mse_mandelbrot is
     -- Others
     signal DataxD         : std_logic_vector(((C_PIXEL_SIZE * 3) - 1) downto 0) := (others => '0');
     signal HdmiSourcexD   : t_HdmiSource                                        := C_NO_HDMI_SOURCE;
+    
+    
+    signal s_screen_x :         std_logic_vector(9 downto 0);
+    signal s_screen_y :         std_logic_vector(9 downto 0);
+    signal s_finished_cstGen :  std_logic;
+    signal s_c_real :           std_logic_vector(C_DATA_SIZE-1 downto 0);
+    signal s_c_imaginary :      std_logic_vector(C_DATA_SIZE-1 downto 0);
+    
+    signal s_ready_mndl_cal :   std_logic;
+    signal s_finished_mndl_cal :std_logic;
+    signal s_z_real :           std_logic_vector(C_DATA_SIZE-1 downto 0);
+    signal s_z_imaginary :      std_logic_vector(C_DATA_SIZE-1 downto 0);
+    signal s_iterations :       std_logic_vector(C_DATA_SIZE-1 downto 0);
+    
+    signal s_output_bram :      std_logic_vector(7 downto 0);
 
     -- Debug signals
 
@@ -232,46 +277,81 @@ begin  -- architecture rtl
 
     end block RstPllLockedxB;
 
-    ImageGeneratorxB : block is
-    begin  -- block ImageGeneratorxB
+    ---------------------------------------------------------------------------
+    -- BRAM used to store mandelbrot_calculator results
+    ---------------------------------------------------------------------------
+    Bram_iteration : blk_mem_iter
+        port map (
+            clka    => ClkSys100MhzxC,
+            ena     => s_finished_mndl_cal,
+            wea     => "1",
+            addra   => s_screen_y & s_screen_x,
+            dina    => s_iterations(7 downto 0),
+            clkb    => ClkVgaxC,
+            enb     => VidOnxS,
+            addrb   => VCountxD(9 downto 0) & HCountxD(9 downto 0),
+            doutb   => s_output_bram);
 
-        ---------------------------------------------------------------------------
-        -- Image generator example
-        ---------------------------------------------------------------------------
-        ImageGeneratorxI : entity work.image_generator
-            generic map (
-                C_DATA_SIZE  => C_DATA_SIZE,
-                C_PIXEL_SIZE => C_PIXEL_SIZE,
-                C_VGA_CONFIG => C_VGA_CONFIG)
-            port map (
-                ClkVgaxC     => ClkVgaxC,
-                RstxRA       => RstPllLockedxS,
-                PllLockedxSI => PllLockedxS,
-                HCountxDI    => HCountxD,
-                VCountxDI    => VCountxD,
-                VidOnxSI     => VidOnxS,
-                DataxDO      => DataxD);
+--    ImageGeneratorxB : block is
+--    begin  -- block ImageGeneratorxB
 
-    end block ImageGeneratorxB;
+--    ---------------------------------------------------------------------------
+--    -- Image generator example
+--    ---------------------------------------------------------------------------
+--    ImageGeneratorxI : entity work.image_generator
+--        generic map (
+--            C_DATA_SIZE  => C_DATA_SIZE,
+--            C_PIXEL_SIZE => C_PIXEL_SIZE,
+--            C_VGA_CONFIG => C_VGA_CONFIG)
+--        port map (
+--            ClkVgaxC     => ClkVgaxC,
+--            RstxRA       => RstPllLockedxS,
+--            PllLockedxSI => PllLockedxS,
+--            HCountxDI    => HCountxD,
+--            VCountxDI    => VCountxD,
+--            VidOnxSI     => VidOnxS,
+--            DataxDO      => DataxD);
+
+--    end block ImageGeneratorxB;
     
     ---------------------------------------------------------------------------
     -- Mandelbrot Calculator
     ---------------------------------------------------------------------------
     MandelbrotCalculator : entity work.mandelbrot_calculator
         generic map (
-            point_pos   => 12,
-            max_iter    => 100,
-            SIZE        => 16)
+            point_pos   => C_POINT_POS,
+            max_iter    => C_MAX_ITER,
+            SIZE        => C_DATA_SIZE)
         port map (
             clk         => ClkSys100MhzxC,
             rst         => RstxR,
-            ready       => open,
-            start       => '0',
-            finished    => open,
-            c_real      => (others=>'0'),
-            c_imaginary => (others=>'0'),
-            z_real      => open,
-            z_imaginary => open,
-            iterations  => open);
+            ready       => s_ready_mndl_cal,
+            start       => s_finished_cstGen,
+            finished    => s_finished_mndl_cal,
+            c_real      => s_c_real,
+            c_imaginary => s_c_imaginary,
+            z_real      => s_z_real,
+            z_imaginary => s_z_imaginary,
+            iterations  => s_iterations);
+            
+    ---------------------------------------------------------------------------
+    -- Constants Generator
+    ---------------------------------------------------------------------------
+    ConstantsGenerator : entity work.constants_generator
+        generic map (
+            point_pos   => C_POINT_POS,
+            SIZE        => C_DATA_SIZE)
+        port map (
+            clk         => ClkSys100MhzxC,
+            rst         => RstxR,
+            ready       => s_ready_mndl_cal,
+            finished    => s_finished_cstGen,
+            screen_x    => s_screen_x,
+            screen_y    => s_screen_y,
+            c_real      => s_c_real,
+            c_imaginary => s_c_imaginary);
+            
+            
+    DataxD <= s_output_bram & s_output_bram & s_output_bram;
 
 end architecture rtl;

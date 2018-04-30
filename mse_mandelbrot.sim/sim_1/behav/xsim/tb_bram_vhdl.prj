@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter_sim_netlist.vhdl" \
+"../../../../mse_mandelbrot.srcs/sim_1/new/tb_bram.vhd" \
+
+# Do not sort compile order
+nosort

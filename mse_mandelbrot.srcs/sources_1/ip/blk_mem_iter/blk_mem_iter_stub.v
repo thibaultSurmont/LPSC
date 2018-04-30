@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-// Date        : Tue Apr 24 17:30:55 2018
+// Date        : Thu Apr 26 22:27:49 2018
 // Host        : quartus running 64-bit Debian GNU/Linux 9.3 (stretch)
 // Command     : write_verilog -force -mode synth_stub
 //               /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter_stub.v

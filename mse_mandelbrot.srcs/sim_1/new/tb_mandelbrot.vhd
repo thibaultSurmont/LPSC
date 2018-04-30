@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -38,6 +38,7 @@ end tb_mandelbrot;
 architecture testbench of tb_mandelbrot is
 
     constant CLK_PERIOD :       time := 10 ns;
+    constant CLK_HDMI_PERIOD :  time := 25 ns;
 
     constant POINT_POSITION :   integer := 12;
     constant MAX_ITERATION :    integer := 100;
@@ -73,8 +74,22 @@ architecture testbench of tb_mandelbrot is
                     z_imaginary :   out std_logic_vector(SIZE-1 downto 0);
                     iterations :    out std_logic_vector(SIZE-1 downto 0));
     end component mandelbrot_calculator;
+    
+    component blk_mem_iter is
+        port (
+            clka :  in  std_logic;
+            ena :   in  std_logic;
+            wea :   in  std_logic_vector(0 DOWNTO 0);
+            addra : in  std_logic_vector(19 DOWNTO 0);
+            dina :  in  std_logic_vector(7 DOWNTO 0);
+            clkb :  in  std_logic;
+            enb :   in  std_logic;
+            addrb : in  std_logic_vector(19 DOWNTO 0);
+            doutb : out std_logic_vector(7 DOWNTO 0));
+    end component blk_mem_iter;
 
     signal sti_clk :            std_logic := '0';
+    signal sti_hdmi_clk :       std_logic := '0';
     signal sti_rst :            std_logic;
     
     signal obs_screen_x :       std_logic_vector(9 downto 0);
@@ -89,6 +104,12 @@ architecture testbench of tb_mandelbrot is
     signal obs_z_real :         std_logic_vector(VECTOR_SIZE-1 downto 0);
     signal obs_z_imaginary :    std_logic_vector(VECTOR_SIZE-1 downto 0);
     signal obs_iterations :     std_logic_vector(VECTOR_SIZE-1 downto 0);
+    
+    signal s_screen_in :        std_logic_vector(19 downto 0);
+    signal sti_screen_out :     std_logic_vector(19 downto 0);
+    
+    signal sti_bram_en :        std_logic;
+    signal obs_bram_out :       std_logic_vector(7 downto 0);
 
 begin
 
@@ -97,6 +118,8 @@ begin
     ---------------------------------------------------------------------------
     SimClk :
     sti_clk <= not sti_clk after (CLK_PERIOD / 2);
+    SimHdmiClk :
+    sti_hdmi_clk <= not sti_hdmi_clk after (CLK_HDMI_PERIOD / 2);
     
     ---------------------------------------------------------------------------
     -- Constants Generator
@@ -138,10 +161,27 @@ begin
             iterations  => obs_iterations);
             
     ---------------------------------------------------------------------------
-    -- Mandelbrot Calculator Simulation
+    -- BRAM used to store mandelbrot_calculator results
     ---------------------------------------------------------------------------
-    MandelbrotCalculatorSimulation : 
+    Bram_iteration : blk_mem_iter
+        port map (
+            clka    => sti_clk,
+            ena     => '1',
+            wea(0)  => obs_finished,
+            addra   => s_screen_in,
+            dina    => obs_iterations(7 downto 0),
+            clkb    => sti_hdmi_clk,
+            enb     => sti_bram_en,
+            addrb   => sti_screen_out,
+            doutb   => obs_bram_out);
+            
+    ---------------------------------------------------------------------------
+    -- Mandelbrot Simulation
+    ---------------------------------------------------------------------------
+    MandelbrotSimulation : 
     process is
+        variable screen_x : integer := 0;
+        variable screen_y : integer := 0;
     begin
     
         -- Reset
@@ -152,9 +192,47 @@ begin
         wait until rising_edge(sti_clk);
         sti_rst <= '0';
         
-        wait for 100 ns;
+        -- Generate all coordonates of the display
+        while screen_y < 600 loop
+            
+            wait until falling_edge(obs_finished);
+            
+            wait until rising_edge(sti_hdmi_clk);
+                
+                -- Compute address
+                sti_screen_out <= std_logic_vector(to_unsigned(screen_y, 10)) & std_logic_vector(to_unsigned(screen_x, 10));
+                
+                -- Check address value
+                if screen_x < 1023 then
+                
+                    screen_x := screen_x + 1;
+                else
+                
+                    screen_x := 0;
+                    
+                    if screen_y < 600 then
+                    
+                        screen_y := screen_y + 1;
+                    else
+                        screen_y := 0;
+                    end if;
+                end if;
+                
+                -- Enable reading
+                sti_bram_en <= '1';
+                
+                wait until rising_edge(sti_hdmi_clk);
+                
+                -- Disable reading
+                sti_bram_en <= '0';
+                
+                -- next iteration
+        end loop;
 
         wait;
-    end process MandelbrotCalculatorSimulation;
+    end process MandelbrotSimulation;
+    
+    -- Address building
+    s_screen_in <= obs_screen_y & obs_screen_x;
 
 end testbench;

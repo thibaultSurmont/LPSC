@@ -352,6 +352,7 @@ begin  -- architecture rtl
             c_imaginary => s_c_imaginary);
             
             
-    DataxD <= s_output_bram & s_output_bram & s_output_bram;
+    --DataxD <= s_output_bram & s_output_bram & s_output_bram;
+    DataxD <= (others=>'1');
 
 end architecture rtl;

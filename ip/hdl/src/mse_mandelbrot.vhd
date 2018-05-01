@@ -194,6 +194,7 @@ architecture rtl of mse_mandelbrot is
     signal s_z_imaginary :      std_logic_vector(C_DATA_SIZE-1 downto 0);
     signal s_iterations :       std_logic_vector(C_DATA_SIZE-1 downto 0);
     
+    signal s_en_a_bram :        std_logic;
     signal s_output_bram :      std_logic_vector(7 downto 0);
 
     -- Debug signals
@@ -283,12 +284,12 @@ begin  -- architecture rtl
     Bram_iteration : blk_mem_iter
         port map (
             clka    => ClkSys100MhzxC,
-            ena     => s_finished_mndl_cal,
-            wea     => "1",
+            ena     => s_en_a_bram,
+            wea(0)  => s_finished_mndl_cal,
             addra   => s_screen_y & s_screen_x,
             dina    => s_iterations(7 downto 0),
             clkb    => ClkVgaxC,
-            enb     => VidOnxS,
+            enb     => PllLockedxS, --VidOnxS,
             addrb   => VCountxD(9 downto 0) & HCountxD(9 downto 0),
             doutb   => s_output_bram);
 
@@ -351,8 +352,8 @@ begin  -- architecture rtl
             c_real      => s_c_real,
             c_imaginary => s_c_imaginary);
             
-            
-    --DataxD <= s_output_bram & s_output_bram & s_output_bram;
-    DataxD <= (others=>'1');
+    s_en_a_bram <= not RstxR;
+    DataxD      <= s_output_bram & s_output_bram & s_output_bram;
+    --DataxD      <= (others=>'1');
 
 end architecture rtl;

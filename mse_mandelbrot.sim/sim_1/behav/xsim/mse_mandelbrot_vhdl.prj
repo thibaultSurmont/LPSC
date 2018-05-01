@@ -1,0 +1,22 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter_sim_netlist.vhdl" \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_sim_netlist.vhdl" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/generic_register.vhd" \
+"../../../../ip/hdl/src/hdmi_interface_pkg.vhd" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd" \
+
+vhdl2008 xil_defaultlib  \
+"../../../../ip/hdl/src/vga_stripes.vhd" \
+"../../../../ip/hdl/src/vga_controler.vhd" \
+"../../../../ip/hdl/src/vga.vhd" \
+"../../../../ip/hdl/src/tmds_encoder.vhd" \
+"../../../../ip/hdl/src/serializer_10_to_1.vhd" \
+"../../../../ip/hdl/src/vga_to_hdmi.vhd" \
+"../../../../ip/hdl/src/hdmi.vhd" \
+"../../../../ip/hdl/src/mse_mandelbrot.vhd" \
+
+# Do not sort compile order
+nosort

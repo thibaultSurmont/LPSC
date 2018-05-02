@@ -81,7 +81,7 @@ architecture rtl of mse_mandelbrot is
     constant C_BRAM_VIDEO_MEMORY_DATA_SIZE      : integer := 9;
     
     constant C_POINT_POS                        : integer := 12;
-    constant C_MAX_ITER                         : integer := 100;
+    constant C_MAX_ITER                         : integer := 125;
 
     component hdmi is
         generic (
@@ -119,21 +119,6 @@ architecture rtl of mse_mandelbrot is
             addrb : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
             doutb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
     end component blk_mem_iter;
-
---    component image_generator is
---        generic (
---            C_DATA_SIZE  : integer;
---            C_PIXEL_SIZE : integer;
---            C_VGA_CONFIG : t_VgaConfig);
---        port (
---            ClkVgaxC     : in  std_logic;
---            RstxRA       : in  std_logic;
---            PllLockedxSI : in  std_logic;
---            HCountxDI    : in  std_logic_vector((C_DATA_SIZE - 1) downto 0);
---            VCountxDI    : in  std_logic_vector((C_DATA_SIZE - 1) downto 0);
---            VidOnxSI     : in  std_logic;
---            DataxDO      : out std_logic_vector(((C_PIXEL_SIZE * 3) - 1) downto 0));
---    end component image_generator;
     
     component mandelbrot_calculator is
         generic (   point_pos :     integer := 12; -- nombre de bits après la virgule
@@ -192,7 +177,6 @@ architecture rtl of mse_mandelbrot is
     signal s_z_imaginary :      std_logic_vector(C_DATA_SIZE-1 downto 0);
     signal s_iterations :       std_logic_vector(C_DATA_SIZE-1 downto 0);
     
-    signal s_input_bram :       std_logic_vector(7 downto 0);
     signal s_output_bram :      std_logic_vector(7 downto 0);
 
     -- Debug signals
@@ -284,32 +268,10 @@ begin  -- architecture rtl
             clka    => ClkSys100MhzxC,
             wea(0)  => s_finished_mndl_cal,
             addra   => (s_screen_y & s_screen_x),
-            dina    => s_input_bram,
+            dina    => s_iterations(7 downto 0),
             clkb    => ClkVgaxC,
             addrb   => (VCountxD(9 downto 0) & HCountxD(9 downto 0)),
             doutb   => s_output_bram);
-
---    ImageGeneratorxB : block is
---    begin  -- block ImageGeneratorxB
-
---    ---------------------------------------------------------------------------
---    -- Image generator example
---    ---------------------------------------------------------------------------
---    ImageGeneratorxI : entity work.image_generator
---        generic map (
---            C_DATA_SIZE  => C_DATA_SIZE,
---            C_PIXEL_SIZE => C_PIXEL_SIZE,
---            C_VGA_CONFIG => C_VGA_CONFIG)
---        port map (
---            ClkVgaxC     => ClkVgaxC,
---            RstxRA       => RstPllLockedxS,
---            PllLockedxSI => PllLockedxS,
---            HCountxDI    => HCountxD,
---            VCountxDI    => VCountxD,
---            VidOnxSI     => VidOnxS,
---            DataxDO      => DataxD);
-
---    end block ImageGeneratorxB;
     
     ---------------------------------------------------------------------------
     -- Mandelbrot Calculator
@@ -348,9 +310,8 @@ begin  -- architecture rtl
             c_real      => s_c_real,
             c_imaginary => s_c_imaginary);
             
-    DataxD  <= s_output_bram & X"FF" & s_output_bram;
-    
-    s_input_bram <= (others=>'1') when s_screen_y > X"1FF" else
-                    s_iterations(7 downto 0);
+    DataxD  <=  s_output_bram(7 downto 1) & '0' &
+                s_output_bram(7 downto 1) & '0' &
+                s_output_bram(7 downto 1) & '0';
 
 end architecture rtl;

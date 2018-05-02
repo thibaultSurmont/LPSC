@@ -78,12 +78,10 @@ architecture testbench of tb_mandelbrot is
     component blk_mem_iter is
         port (
             clka :  in  std_logic;
-            ena :   in  std_logic;
             wea :   in  std_logic_vector(0 DOWNTO 0);
             addra : in  std_logic_vector(19 DOWNTO 0);
             dina :  in  std_logic_vector(7 DOWNTO 0);
             clkb :  in  std_logic;
-            enb :   in  std_logic;
             addrb : in  std_logic_vector(19 DOWNTO 0);
             doutb : out std_logic_vector(7 DOWNTO 0));
     end component blk_mem_iter;
@@ -108,7 +106,6 @@ architecture testbench of tb_mandelbrot is
     signal s_screen_in :        std_logic_vector(19 downto 0);
     signal sti_screen_out :     std_logic_vector(19 downto 0);
     
-    signal sti_bram_en :        std_logic;
     signal obs_bram_out :       std_logic_vector(7 downto 0);
 
 begin
@@ -166,12 +163,10 @@ begin
     Bram_iteration : blk_mem_iter
         port map (
             clka    => sti_clk,
-            ena     => '1',
             wea(0)  => obs_finished,
             addra   => s_screen_in,
             dina    => obs_iterations(7 downto 0),
             clkb    => sti_hdmi_clk,
-            enb     => sti_bram_en,
             addrb   => sti_screen_out,
             doutb   => obs_bram_out);
             
@@ -218,13 +213,8 @@ begin
                     end if;
                 end if;
                 
-                -- Enable reading
-                sti_bram_en <= '1';
-                
+                -- Reading
                 wait until rising_edge(sti_hdmi_clk);
-                
-                -- Disable reading
-                sti_bram_en <= '0';
                 
                 -- next iteration
         end loop;

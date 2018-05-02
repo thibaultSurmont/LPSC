@@ -47,12 +47,10 @@ architecture testbench of tb_bram is
     component blk_mem_iter is
         port (
             clka :  in  std_logic;
-            ena :   in  std_logic;
             wea :   in  std_logic_vector(0 DOWNTO 0);
             addra : in  std_logic_vector(19 DOWNTO 0);
             dina :  in  std_logic_vector(7 DOWNTO 0);
             clkb :  in  std_logic;
-            enb :   in  std_logic;
             addrb : in  std_logic_vector(19 DOWNTO 0);
             doutb : out std_logic_vector(7 DOWNTO 0));
     end component blk_mem_iter;
@@ -61,12 +59,10 @@ architecture testbench of tb_bram is
     signal sti_clk_b :          std_logic := '0';
     signal sti_rst :            std_logic;
     
-    signal sti_en_a :           std_logic := '0';
     signal sti_wr_a :           std_logic := '1';
     signal sti_addr_a :         std_logic_vector(19 downto 0);
     signal sti_in_a :           std_logic_vector(7 downto 0) := (others=>'0');
     
-    signal sti_en_b :           std_logic := '0';
     signal sti_addr_b :         std_logic_vector(19 downto 0);
     signal sti_out_b :          std_logic_vector(7 downto 0);
     
@@ -86,12 +82,10 @@ begin
     Bram_iteration : blk_mem_iter
         port map (
             clka    => sti_clk_a,
-            ena     => sti_en_a,
             wea(0)  => sti_wr_a,
             addra   => sti_addr_a,
             dina    => sti_in_a,
             clkb    => sti_clk_b,
-            enb     => sti_en_b,
             addrb   => sti_addr_b,
             doutb   => sti_out_b);
             
@@ -104,20 +98,19 @@ begin
         variable addr_y_a : integer := 0;
     begin
     
-        while true loop
+        -- Reset
+        wait until rising_edge(sti_clk_a);
+        sti_rst <= '1';
         
-            -- Reset
-            wait until rising_edge(sti_clk_a);
-            sti_rst <= '1';
-            
-            -- Apply stimulus
-            wait until rising_edge(sti_clk_a);
-            sti_rst <= '0';
+        -- Apply stimulus
+        wait until rising_edge(sti_clk_a);
+        sti_rst <= '0';
+    
+        while true loop
               
             -- Write in BRAM
             sti_addr_a  <= std_logic_vector(to_unsigned(addr_y_a, 10)) & std_logic_vector(to_unsigned(addr_x_a, 10));
             sti_in_a    <= sti_in_a xor X"FF";
-            sti_en_a <= '1';
             
             -- Increment addresses
             if addr_x_a < 1023 then
@@ -136,16 +129,11 @@ begin
             end if;
             
             wait until rising_edge(sti_clk_a);
-            sti_en_a <= '0';
             
             -- Read BRAM
             wait until rising_edge(sti_clk_b);
             -- Update reading addresses
             sti_addr_b  <= sti_addr_a;
-            sti_en_b <= '1';
-            
-            wait until rising_edge(sti_clk_b);
-            sti_en_b <= '0';
             
         end loop;
 

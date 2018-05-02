@@ -193,8 +193,8 @@ set rc [catch {
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   add_files -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/mse_mandelbrot.dcp
-  read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.xci
   read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter.xci
+  read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.xci
   read_xdc /home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc
   link_design -top mse_mandelbrot -part xc7a200tsbg484-1
   close_msg_db -file init_design.pb

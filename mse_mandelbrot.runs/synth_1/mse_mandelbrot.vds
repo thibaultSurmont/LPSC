@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Tue May  1 11:43:55 2018
-# Process ID: 12929
+# Start of session at: Wed May  2 09:42:02 2018
+# Process ID: 6080
 # Current directory: /home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1
 # Command line: vivado -log mse_mandelbrot.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mse_mandelbrot.tcl
 # Log file: /home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/mse_mandelbrot.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 12947 
+INFO: Helper process launched with PID 6091 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1252.035 ; gain = 76.973 ; free physical = 4898 ; free virtual = 6493
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1252.031 ; gain = 76.973 ; free physical = 4523 ; free virtual = 6195
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'mse_mandelbrot' [/home/quartus/workspace/LPSC/ip/hdl/src/mse_mandelbrot.vhd:51]
 	Parameter C_CHANNEL_NUMBER bound to: 4 - type: integer 
@@ -28,8 +28,8 @@ INFO: [Synth 8-638] synthesizing module 'hdmi' [/home/quartus/workspace/LPSC/ip/
 	Parameter C_VGA_CONFIG bound to: 192'b000001000000000000000010010110000000000010100000000000001000110000000000000011000000000000010100000000000001010000000000000000110000010101000000000000100111101100000000000000000000000000000000 
 	Parameter C_RESOLUTION bound to: 1024x600 - type: string 
 INFO: [Synth 8-113] binding component instance 'BUFGClkSysToClkVgaHdmixI' to cell 'BUFG' [/home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd:363]
-INFO: [Synth 8-3491] module 'clk_vga_hdmi_1024x600' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-12929-quartus/realtime/clk_vga_hdmi_1024x600_stub.vhdl:5' bound to instance 'ClkVgaHdmi1024x600xI' of component 'clk_vga_hdmi_1024x600' [/home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd:380]
-INFO: [Synth 8-638] synthesizing module 'clk_vga_hdmi_1024x600' [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-12929-quartus/realtime/clk_vga_hdmi_1024x600_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'clk_vga_hdmi_1024x600' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-6080-quartus/realtime/clk_vga_hdmi_1024x600_stub.vhdl:5' bound to instance 'ClkVgaHdmi1024x600xI' of component 'clk_vga_hdmi_1024x600' [/home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd:380]
+INFO: [Synth 8-638] synthesizing module 'clk_vga_hdmi_1024x600' [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-6080-quartus/realtime/clk_vga_hdmi_1024x600_stub.vhdl:16]
 INFO: [Synth 8-638] synthesizing module 'vga' [/home/quartus/workspace/LPSC/ip/hdl/src/vga.vhd:47]
 	Parameter C_DATA_SIZE bound to: 16 - type: integer 
 	Parameter C_PIXEL_SIZE bound to: 8 - type: integer 
@@ -124,8 +124,8 @@ INFO: [Synth 8-113] binding component instance 'OBUFDSHdmiTxCh2xI' to cell 'OBUF
 INFO: [Synth 8-113] binding component instance 'OBUFDSHdmiTxClkxI' to cell 'OBUFDS' [/home/quartus/workspace/LPSC/ip/hdl/src/vga_to_hdmi.vhd:234]
 INFO: [Synth 8-256] done synthesizing module 'vga_to_hdmi' (6#1) [/home/quartus/workspace/LPSC/ip/hdl/src/vga_to_hdmi.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'hdmi' (7#1) [/home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd:62]
-INFO: [Synth 8-3491] module 'blk_mem_iter' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-12929-quartus/realtime/blk_mem_iter_stub.vhdl:5' bound to instance 'Bram_iteration' of component 'blk_mem_iter' [/home/quartus/workspace/LPSC/ip/hdl/src/mse_mandelbrot.vhd:284]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_iter' [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-12929-quartus/realtime/blk_mem_iter_stub.vhdl:20]
+INFO: [Synth 8-3491] module 'blk_mem_iter' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-6080-quartus/realtime/blk_mem_iter_stub.vhdl:5' bound to instance 'Bram_iteration' of component 'blk_mem_iter' [/home/quartus/workspace/LPSC/ip/hdl/src/mse_mandelbrot.vhd:282]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_iter' [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-6080-quartus/realtime/blk_mem_iter_stub.vhdl:18]
 INFO: [Synth 8-638] synthesizing module 'mandelbrot_calculator' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd:52]
 	Parameter point_pos bound to: 12 - type: integer 
 	Parameter max_iter bound to: 100 - type: integer 
@@ -144,7 +144,7 @@ WARNING: [Synth 8-5825] expecting unsigned expression [/home/quartus/workspace/L
 INFO: [Synth 8-256] done synthesizing module 'constants_generator' (11#1) [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd:49]
 INFO: [Synth 8-256] done synthesizing module 'mse_mandelbrot' (12#1) [/home/quartus/workspace/LPSC/ip/hdl/src/mse_mandelbrot.vhd:51]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1296.566 ; gain = 121.504 ; free physical = 4910 ; free virtual = 6505
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1296.562 ; gain = 121.504 ; free physical = 4534 ; free virtual = 6206
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -154,7 +154,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1296.566 ; gain = 121.504 ; free physical = 4910 ; free virtual = 6505
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1296.562 ; gain = 121.504 ; free physical = 4534 ; free virtual = 6206
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -163,30 +163,32 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-12929-quartus/dcp2/clk_vga_hdmi_1024x600_in_context.xdc] for cell 'HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI'
-Finished Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-12929-quartus/dcp2/clk_vga_hdmi_1024x600_in_context.xdc] for cell 'HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI'
-Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-12929-quartus/dcp3/blk_mem_iter_in_context.xdc] for cell 'Bram_iteration'
-Finished Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-12929-quartus/dcp3/blk_mem_iter_in_context.xdc] for cell 'Bram_iteration'
+Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-6080-quartus/dcp2/blk_mem_iter_in_context.xdc] for cell 'Bram_iteration'
+Finished Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-6080-quartus/dcp2/blk_mem_iter_in_context.xdc] for cell 'Bram_iteration'
+Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-6080-quartus/dcp3/clk_vga_hdmi_1024x600_in_context.xdc] for cell 'HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI'
+Finished Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-6080-quartus/dcp3/clk_vga_hdmi_1024x600_in_context.xdc] for cell 'HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI'
 Parsing XDC File [/home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc]
 Finished Parsing XDC File [/home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/mse_mandelbrot_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/mse_mandelbrot_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1702.426 ; gain = 0.000 ; free physical = 4608 ; free virtual = 6204
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1702.414 ; gain = 0.000 ; free physical = 4238 ; free virtual = 5910
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'Bram_iteration' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1702.426 ; gain = 527.363 ; free physical = 4690 ; free virtual = 6285
+Finished Constraint Validation : Time (s): cpu = 00:00:24 ; elapsed = 00:00:36 . Memory (MB): peak = 1702.414 ; gain = 527.355 ; free physical = 4318 ; free virtual = 5990
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1702.426 ; gain = 527.363 ; free physical = 4690 ; free virtual = 6285
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:36 . Memory (MB): peak = 1702.414 ; gain = 527.355 ; free physical = 4318 ; free virtual = 5990
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -194,7 +196,7 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for Bram_iteration. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for HdmixI/\ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1702.426 ; gain = 527.363 ; free physical = 4691 ; free virtual = 6286
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:36 . Memory (MB): peak = 1702.414 ; gain = 527.355 ; free physical = 4320 ; free virtual = 5992
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "VCountxD" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "VgaSyncxS[HSyncxS]" won't be mapped to RAM because it is too sparse
@@ -204,19 +206,14 @@ INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To p
 INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/quartus/workspace/LPSC/ip/hdl/src/tmds_encoder.vhd:126]
 INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [/home/quartus/workspace/LPSC/ip/hdl/src/tmds_encoder.vhd:122]
 WARNING: [Synth 8-6014] Unused sequential element counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
-INFO: [Synth 8-5544] ROM "z_real" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-4471] merging register 'finished_reg' into 's_clr_reg' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd:189]
+WARNING: [Synth 8-6014] Unused sequential element finished_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd:189]
 WARNING: [Synth 8-6014] Unused sequential element s_x_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd:90]
 WARNING: [Synth 8-6014] Unused sequential element s_y_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd:91]
 WARNING: [Synth 8-6014] Unused sequential element s_c_real_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd:92]
 WARNING: [Synth 8-6014] Unused sequential element s_c_imag_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd:93]
-WARNING: [Synth 8-327] inferring latch for variable 'ready_reg' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd:236]
-WARNING: [Synth 8-327] inferring latch for variable 's_clr_reg' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd:133]
-WARNING: [Synth 8-327] inferring latch for variable 'z_real_reg' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd:178]
-WARNING: [Synth 8-327] inferring latch for variable 'z_imaginary_reg' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd:179]
-WARNING: [Synth 8-327] inferring latch for variable 'iterations_reg' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd:184]
-WARNING: [Synth 8-327] inferring latch for variable 's_en_reg' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd:132]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1702.426 ; gain = 527.363 ; free physical = 4682 ; free virtual = 6277
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1702.414 ; gain = 527.355 ; free physical = 4312 ; free virtual = 5984
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -239,23 +236,24 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input      1 Bit         XORs := 42    
 +---Registers : 
-	               16 Bit    Registers := 4     
+	               16 Bit    Registers := 7     
 	               10 Bit    Registers := 5     
 	                4 Bit    Registers := 3     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 5     
+	                1 Bit    Registers := 8     
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 5     
 	   5 Input     10 Bit        Muxes := 6     
 	   4 Input     10 Bit        Muxes := 3     
 	   2 Input     10 Bit        Muxes := 9     
 	   2 Input      9 Bit        Muxes := 6     
-	   2 Input      8 Bit        Muxes := 3     
+	   2 Input      8 Bit        Muxes := 4     
 	   2 Input      4 Bit        Muxes := 12    
-	   7 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 15    
 	   3 Input      1 Bit        Muxes := 2     
-	   4 Input      1 Bit        Muxes := 2     
+	   4 Input      1 Bit        Muxes := 7     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -263,6 +261,10 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module mse_mandelbrot 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
 Module vga_stripes 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -313,11 +315,14 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit       Adders := 2     
 	   4 Input     16 Bit       Adders := 1     
 +---Registers : 
+	               16 Bit    Registers := 3     
 	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
 +---Muxes : 
 	   2 Input     16 Bit        Muxes := 1     
-	   7 Input      2 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   4 Input      1 Bit        Muxes := 7     
 	   2 Input      1 Bit        Muxes := 2     
 Module constants_generator 
 Detailed RTL Component Info : 
@@ -343,61 +348,42 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-6014] Unused sequential element MandelbrotCalculator/z_real_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd:212]
+WARNING: [Synth 8-6014] Unused sequential element MandelbrotCalculator/z_imaginary_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd:213]
 INFO: [Synth 8-5546] ROM "HdmixI/VgaxI/VgaControlerxI/VgaSyncxS[HSyncxS]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "HdmixI/VgaxI/VgaControlerxI/VCountxD" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "HdmixI/VgaxI/VgaControlerxI/VgaSyncxS[VSyncxS]" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element MandelbrotCalculator/ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element MandelbrotCalculator/RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
 WARNING: [Synth 8-6014] Unused sequential element MandelbrotCalculator/IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
 WARNING: [Synth 8-6014] Unused sequential element ConstantsGenerator/s_x_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd:90]
 WARNING: [Synth 8-6014] Unused sequential element ConstantsGenerator/s_y_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd:91]
 WARNING: [Synth 8-6014] Unused sequential element ConstantsGenerator/s_c_real_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd:92]
 WARNING: [Synth 8-6014] Unused sequential element ConstantsGenerator/s_c_imag_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd:93]
 DSP Report: Generating DSP MandelbrotCalculator/mult0, operation Mode is: A2*B2.
-DSP Report: register MandelbrotCalculator/ImaginaryRegister/data_out_reg is absorbed into DSP MandelbrotCalculator/mult0.
 DSP Report: register MandelbrotCalculator/RealRegister/data_out_reg is absorbed into DSP MandelbrotCalculator/mult0.
+DSP Report: register MandelbrotCalculator/RealRegister/data_out_reg is absorbed into DSP MandelbrotCalculator/mult0.
+DSP Report: operator MandelbrotCalculator/mult0 is absorbed into DSP MandelbrotCalculator/mult0.
+DSP Report: Generating DSP MandelbrotCalculator/mult0, operation Mode is: A2*B2.
+DSP Report: register MandelbrotCalculator/RealRegister/data_out_reg is absorbed into DSP MandelbrotCalculator/mult0.
+DSP Report: register MandelbrotCalculator/ImaginaryRegister/data_out_reg is absorbed into DSP MandelbrotCalculator/mult0.
 DSP Report: operator MandelbrotCalculator/mult0 is absorbed into DSP MandelbrotCalculator/mult0.
 DSP Report: Generating DSP MandelbrotCalculator/mult0, operation Mode is: A2*B2.
 DSP Report: register MandelbrotCalculator/ImaginaryRegister/data_out_reg is absorbed into DSP MandelbrotCalculator/mult0.
 DSP Report: register MandelbrotCalculator/ImaginaryRegister/data_out_reg is absorbed into DSP MandelbrotCalculator/mult0.
 DSP Report: operator MandelbrotCalculator/mult0 is absorbed into DSP MandelbrotCalculator/mult0.
-DSP Report: Generating DSP MandelbrotCalculator/mult0, operation Mode is: A2*B2.
-DSP Report: register MandelbrotCalculator/RealRegister/data_out_reg is absorbed into DSP MandelbrotCalculator/mult0.
-DSP Report: register MandelbrotCalculator/RealRegister/data_out_reg is absorbed into DSP MandelbrotCalculator/mult0.
-DSP Report: operator MandelbrotCalculator/mult0 is absorbed into DSP MandelbrotCalculator/mult0.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_11/\ConstantsGenerator/s_c_imag_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_12/\ConstantsGenerator/s_c_real_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_12/\ConstantsGenerator/s_c_real_reg[1] )
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[15]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[14]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[13]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[12]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[11]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[10]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[9]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[8]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[7]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[6]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[5]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[4]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[3]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[2]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[1]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_real_reg[0]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[15]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[14]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[13]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[12]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[11]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[10]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[9]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[8]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[7]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[6]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[5]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[4]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[3]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[2]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[1]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/z_imaginary_reg[0]) is unused and will be removed from module mse_mandelbrot.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_12/\ConstantsGenerator/s_c_imag_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_13/\ConstantsGenerator/s_c_real_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_13/\ConstantsGenerator/s_c_real_reg[1] )
+INFO: [Synth 8-3886] merging instance 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[7]' (FD) to 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[5]'
+INFO: [Synth 8-3886] merging instance 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[6]' (FD) to 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[4]'
+INFO: [Synth 8-3886] merging instance 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[5]' (FD) to 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[3]'
+INFO: [Synth 8-3886] merging instance 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[4]' (FD) to 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[2]'
+INFO: [Synth 8-3886] merging instance 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[3]' (FD) to 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[1]'
+INFO: [Synth 8-3886] merging instance 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[1]' (FD) to 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[0]'
+WARNING: [Synth 8-3332] Sequential element (ConstantsGenerator/s_c_imag_reg[0]) is unused and will be removed from module mse_mandelbrot.
+WARNING: [Synth 8-3332] Sequential element (ConstantsGenerator/s_c_real_reg[0]) is unused and will be removed from module mse_mandelbrot.
+WARNING: [Synth 8-3332] Sequential element (ConstantsGenerator/s_c_real_reg[1]) is unused and will be removed from module mse_mandelbrot.
 WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/iterations_reg[15]) is unused and will be removed from module mse_mandelbrot.
 WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/iterations_reg[14]) is unused and will be removed from module mse_mandelbrot.
 WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/iterations_reg[13]) is unused and will be removed from module mse_mandelbrot.
@@ -406,43 +392,10 @@ WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/iterations_reg[
 WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/iterations_reg[10]) is unused and will be removed from module mse_mandelbrot.
 WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/iterations_reg[9]) is unused and will be removed from module mse_mandelbrot.
 WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/iterations_reg[8]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (ConstantsGenerator/s_c_imag_reg[0]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (ConstantsGenerator/s_c_real_reg[0]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (ConstantsGenerator/s_c_real_reg[1]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[15]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[14]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[13]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[12]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[11]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[10]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[9]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[8]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[7]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[6]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[5]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[4]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[3]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[2]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[1]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/RealRegister/data_out_reg[0]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[15]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[14]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[13]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[12]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[11]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[10]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[9]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[8]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[7]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[6]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[5]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[4]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[3]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[2]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[1]) is unused and will be removed from module mse_mandelbrot.
-WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/ImaginaryRegister/data_out_reg[0]) is unused and will be removed from module mse_mandelbrot.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\MandelbrotCalculator/iterations_reg[7] )
+WARNING: [Synth 8-3332] Sequential element (MandelbrotCalculator/iterations_reg[7]) is unused and will be removed from module mse_mandelbrot.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 1702.426 ; gain = 527.363 ; free physical = 4656 ; free virtual = 6251
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:38 . Memory (MB): peak = 1702.414 ; gain = 527.355 ; free physical = 4291 ; free virtual = 5963
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -477,13 +430,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'HdmixI/ClkVgaHdmi1024x600
 INFO: [Synth 8-5783] Moving clock source from hierarchical pin 'HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/ClkSys100MhzxC' to 'HdmixI/ClkVgaHdmi1024x600xG.BUFGClkSysToClkVgaHdmixI/O'
 INFO: [Synth 8-5819] Moved 3 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:49 . Memory (MB): peak = 1702.426 ; gain = 527.363 ; free physical = 4513 ; free virtual = 6108
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:49 . Memory (MB): peak = 1702.414 ; gain = 527.355 ; free physical = 4140 ; free virtual = 5812
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:50 . Memory (MB): peak = 1702.426 ; gain = 527.363 ; free physical = 4509 ; free virtual = 6104
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:49 . Memory (MB): peak = 1702.414 ; gain = 527.355 ; free physical = 4135 ; free virtual = 5807
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -494,9 +447,8 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3886] merging instance 'HdmixI/VgaToHdmixI/TmdsEncoderC1xI/TmdsEncodedDataxDO_reg[8]' (FDS) to 'HdmixI/VgaToHdmixI/TmdsEncoderC2xI/TmdsEncodedDataxDO_reg[8]'
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:50 . Memory (MB): peak = 1709.465 ; gain = 534.402 ; free physical = 4504 ; free virtual = 6100
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:49 . Memory (MB): peak = 1702.453 ; gain = 527.395 ; free physical = 4131 ; free virtual = 5803
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -521,7 +473,7 @@ Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-5410] Found another clock driver \HdmixI/ClkVgaHdmi1024x600xG.BUFGClkSysToClkVgaHdmixI :O [/home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd:363]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:51 . Memory (MB): peak = 1709.465 ; gain = 534.402 ; free physical = 4504 ; free virtual = 6100
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:50 . Memory (MB): peak = 1702.453 ; gain = 527.395 ; free physical = 4131 ; free virtual = 5803
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -534,7 +486,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:51 . Memory (MB): peak = 1709.465 ; gain = 534.402 ; free physical = 4504 ; free virtual = 6100
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:50 . Memory (MB): peak = 1702.453 ; gain = 527.395 ; free physical = 4131 ; free virtual = 5803
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -546,25 +498,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:51 . Memory (MB): peak = 1709.465 ; gain = 534.402 ; free physical = 4505 ; free virtual = 6100
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:50 . Memory (MB): peak = 1702.453 ; gain = 527.395 ; free physical = 4131 ; free virtual = 5803
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:51 . Memory (MB): peak = 1709.465 ; gain = 534.402 ; free physical = 4505 ; free virtual = 6100
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:50 . Memory (MB): peak = 1702.453 ; gain = 527.395 ; free physical = 4131 ; free virtual = 5803
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:51 . Memory (MB): peak = 1709.465 ; gain = 534.402 ; free physical = 4505 ; free virtual = 6100
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:50 . Memory (MB): peak = 1702.453 ; gain = 527.395 ; free physical = 4131 ; free virtual = 5803
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:51 . Memory (MB): peak = 1709.465 ; gain = 534.402 ; free physical = 4505 ; free virtual = 6100
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:50 . Memory (MB): peak = 1702.453 ; gain = 527.395 ; free physical = 4131 ; free virtual = 5803
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -587,63 +539,61 @@ Report Cell Usage:
 |3     |BUFG                         |     2|
 |4     |CARRY4                       |    32|
 |5     |DSP48E1                      |     3|
-|6     |LUT1                         |    23|
-|7     |LUT2                         |    62|
-|8     |LUT3                         |    51|
-|9     |LUT4                         |    31|
+|6     |LUT1                         |    22|
+|7     |LUT2                         |    57|
+|8     |LUT3                         |    42|
+|9     |LUT4                         |    56|
 |10    |LUT5                         |    47|
-|11    |LUT6                         |   103|
+|11    |LUT6                         |    81|
 |12    |OSERDESE2                    |     4|
 |13    |OSERDESE2_1                  |     4|
-|14    |FDCE                         |    37|
-|15    |FDRE                         |    98|
+|14    |FDCE                         |    38|
+|15    |FDRE                         |   102|
 |16    |FDSE                         |    10|
-|17    |LD                           |    11|
-|18    |IBUF                         |     2|
-|19    |OBUF                         |     1|
-|20    |OBUFDS                       |     4|
+|17    |IBUF                         |     2|
+|18    |OBUF                         |     1|
+|19    |OBUFDS                       |     4|
 +------+-----------------------------+------+
 
 Report Instance Areas: 
 +------+---------------------------+----------------------+------+
 |      |Instance                   |Module                |Cells |
 +------+---------------------------+----------------------+------+
-|1     |top                        |                      |   536|
-|2     |  ConstantsGenerator       |constants_generator   |   109|
-|3     |  HdmixI                   |hdmi                  |   282|
-|4     |    VgaToHdmixI            |vga_to_hdmi           |   102|
+|1     |top                        |                      |   518|
+|2     |  ConstantsGenerator       |constants_generator   |   113|
+|3     |  HdmixI                   |hdmi                  |   260|
+|4     |    VgaToHdmixI            |vga_to_hdmi           |    82|
 |5     |      SerializerChannel0xI |serializer_10_to_1    |     2|
 |6     |      SerializerChannel1xI |serializer_10_to_1_0  |     2|
 |7     |      SerializerChannel2xI |serializer_10_to_1_1  |     2|
 |8     |      SerializerChannel3xI |serializer_10_to_1_2  |     2|
-|9     |      TmdsEncoderC0xI      |tmds_encoder          |    27|
-|10    |      TmdsEncoderC1xI      |tmds_encoder_3        |    31|
-|11    |      TmdsEncoderC2xI      |tmds_encoder_4        |    32|
-|12    |    VgaxI                  |vga                   |   176|
-|13    |      VgaControlerxI       |vga_controler         |   176|
-|14    |  MandelbrotCalculator     |mandelbrot_calculator |   132|
-|15    |    IterationCounter       |generic_counter       |    36|
+|9     |      TmdsEncoderC0xI      |tmds_encoder          |    26|
+|10    |      TmdsEncoderC1xI      |tmds_encoder_3        |    14|
+|11    |      TmdsEncoderC2xI      |tmds_encoder_4        |    30|
+|12    |    VgaxI                  |vga                   |   174|
+|13    |      VgaControlerxI       |vga_controler         |   174|
+|14    |  MandelbrotCalculator     |mandelbrot_calculator |   133|
+|15    |    IterationCounter       |generic_counter       |    34|
 +------+---------------------------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:51 . Memory (MB): peak = 1709.465 ; gain = 534.402 ; free physical = 4505 ; free virtual = 6100
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:50 . Memory (MB): peak = 1702.453 ; gain = 527.395 ; free physical = 4131 ; free virtual = 5803
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 94 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1709.465 ; gain = 128.543 ; free physical = 4573 ; free virtual = 6168
-Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:51 . Memory (MB): peak = 1709.473 ; gain = 534.402 ; free physical = 4577 ; free virtual = 6172
+Synthesis finished with 0 errors, 0 critical warnings and 30 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 1702.453 ; gain = 121.543 ; free physical = 4205 ; free virtual = 5877
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:50 . Memory (MB): peak = 1702.461 ; gain = 527.395 ; free physical = 4209 ; free virtual = 5881
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 52 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 41 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 11 instances were transformed.
-  LD => LDCE: 11 instances
+No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-70 Infos, 94 Warnings, 0 Critical Warnings and 0 Errors encountered.
+76 Infos, 30 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:53 . Memory (MB): peak = 1741.480 ; gain = 579.816 ; free physical = 4570 ; free virtual = 6166
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:52 . Memory (MB): peak = 1734.469 ; gain = 572.809 ; free physical = 4203 ; free virtual = 5875
 INFO: [Common 17-1381] The checkpoint '/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/mse_mandelbrot.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file mse_mandelbrot_utilization_synth.rpt -pb mse_mandelbrot_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.20 ; elapsed = 00:00:00.23 . Memory (MB): peak = 1765.492 ; gain = 0.000 ; free physical = 4570 ; free virtual = 6165
-INFO: [Common 17-206] Exiting Vivado at Tue May  1 11:44:57 2018...
+report_utilization: Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1758.480 ; gain = 0.000 ; free physical = 4203 ; free virtual = 5875
+INFO: [Common 17-206] Exiting Vivado at Wed May  2 09:43:04 2018...

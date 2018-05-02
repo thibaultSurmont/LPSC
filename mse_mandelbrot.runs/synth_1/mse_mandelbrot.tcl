@@ -165,13 +165,13 @@ read_vhdl -vhdl2008 -library xil_defaultlib {
   /home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd
   /home/quartus/workspace/LPSC/ip/hdl/src/mse_mandelbrot.vhd
 }
+read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter.xci
+set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter_ooc.xdc]
+
 read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.xci
 set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_board.xdc]
 set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.xdc]
 set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_ooc.xdc]
-
-read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter.xci
-set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -184,6 +184,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc /home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc
 set_property used_in_implementation false [get_files /home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 
 synth_design -top mse_mandelbrot -part xc7a200tsbg484-1
 

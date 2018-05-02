@@ -160,12 +160,7 @@ begin
             clr         => s_clr,
             data_in     => s_imaginary_reg_in,
             data_out    => s_imaginary_reg_out);
-            
-    ---------------------------------------------------------------------------
-    -- Control signals
-    ---------------------------------------------------------------------------
-            
-            
+                
     ---------------------------------------------------------------------------
     -- Computation block
     ---------------------------------------------------------------------------
@@ -174,77 +169,84 @@ begin
     s_real_reg_in       <= std_logic_vector(signed(s_real2) - signed(s_imaginary2) + signed(c_real));
     s_2mult             <= std_logic_vector(signed(mult(s_real_reg_out, s_imaginary_reg_out, SIZE, point_pos)) sll 1);
     s_imaginary_reg_in  <= std_logic_vector(signed(s_2mult) + signed(c_imaginary));
-    -- Result of computation
-    z_real      <= s_real_reg_out when state = COMPUTE_STATE;
-    z_imaginary <= s_imaginary_reg_out when state = COMPUTE_STATE;
     
     ---------------------------------------------------------------------------
-    -- Iterations counter
+    -- Moore state machine
     ---------------------------------------------------------------------------
-    iterations <=   s_counter       when state = COMPUTE_STATE else
-                    (others=>'0')   when s_counter > int2stdLogicVector(max_iter, s_counter'length);
-    
-    ---------------------------------------------------------------------------
-    -- Mealy state machine
-    ---------------------------------------------------------------------------
-    Mealy_state_machine_sync:
+    Moore_state_machine:
 	process (clk, rst)
     begin
         if rst = '1' then
             state <= RESET_STATE;
+            -- ready cleared
+            ready <= '0';
         elsif (rising_edge(clk)) then
             -- Determine the next state synchronously, based on
             -- the current state and the input
             case state is
                 when RESET_STATE =>
+                    -- All outputs and registers are cleared
+                    finished    <= '0';
+                    s_en        <= '0';
+                    s_clr       <= '0';
+                    -- ready set (waiting for start cmd)
+                    ready       <= '1';
+                    
+                    -- Change state
                     state <= READY_STATE;
-                when READY_STATE =>
+                    
+                when READY_STATE =>                   
+                    -- Start of operations
                     if start = '1' then
+                        -- ready cleared
+                        ready   <= '0';
+                        -- Counter & registers enabled
+                        s_en    <= '1';
+                        
+                        -- Change state
                         state <= COMPUTE_STATE;
-                    else
-                        state <= READY_STATE;
                     end if;
+                    
                 when COMPUTE_STATE =>
+                    -- Result of computation
+                    z_real      <= s_real_reg_out;
+                    z_imaginary <= s_imaginary_reg_out;
+                    iterations  <=  s_counter;
+                    
                     -- Check counter limit
                     if s_counter > int2stdLogicVector(max_iter, s_counter'length) then
+                        -- Reset iterations
+                        iterations <= (others=>'0');
+                        -- finished set (result available)
+                        finished    <= '1';
+                        -- s_clr set (counter and registers cleared for next computation)
+                        s_clr       <= '1';
+                    
+                        -- Change state
                         state <= FINISH_STATE;
                     -- Compare Zr² + Zi² > 4
                     elsif (unsigned(s_real2) + unsigned(s_imaginary2)) > (to_unsigned(4, SIZE) sll 12)  then
+                        -- finished set (result available)
+                        finished    <= '1';
+                        -- s_clr set (counter and registers cleared for next computation)
+                        s_clr       <= '1';
+                    
+                        -- Change state
                         state <= FINISH_STATE;
-                    else
-                        state <= COMPUTE_STATE;
                     end if;
+                    
                 when FINISH_STATE =>
+                    -- All outputs and registers are cleared
+                    finished    <= '0';
+                    s_en        <= '0';
+                    s_clr       <= '0';
+                    -- ready set (waiting for start cmd)
+                    ready       <= '1';
+                
+                    -- Change state
                     state <= READY_STATE;
             end case;
         end if;
-    end process;
-    
-    Moore_state_machine_state_change:
-    -- Determine the output based only on the current state
-    process (state)
-    begin
-        case state is
-            when RESET_STATE =>
-                -- Nothing to do
-            when READY_STATE =>
-                -- All outputs and registers are cleared
-                finished    <= '0';
-                s_en        <= '0';
-                s_clr       <= '0';
-                -- ready set (waiting for start cmd)
-                ready       <= '1';
-            when COMPUTE_STATE =>
-                -- ready cleared
-                ready       <= '0';
-                -- Counter & registers enabled
-                s_en        <= '1';
-            when FINISH_STATE =>
-                -- finished set (result available)
-                finished    <= '1';
-                -- s_clr set (counter and registers cleared for next computation)
-                s_clr       <= '1';
-        end case;
     end process;
 
 end Behavioral;

@@ -16,7 +16,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
 set_msg_config  -ruleid {10}  -id {Constraints 18-619}  -string {{WARNING: [Constraints 18-619] A clock with name 'ClkSys100MhzxC' already exists, overwriting the previous clock with the same name. [/home/joco/Documents/cours/FPGA/master/nexys_video/mse_mandelbrot/mse_mandelbrot.runs/synth_1/.Xil/Vivado-25469-t450s-debian/dcp5/clk_hdmi_1024x600_in_context.xdc:1]}}  -suppress 
 set_msg_config  -ruleid {11}  -id {Timing 38-316}  -string {{WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BramVideoMemory1024x768x9xI' at clock pin 'clka' is different from the actual clock period '19.531', this can lead to different synthesis results.}}  -suppress 
 set_msg_config  -ruleid {12}  -id {Synth 8-3917}  -string {{WARNING: [Synth 8-3917] design mse_mandelbrot has port HdmiTxRsclxSO driven by constant 1}}  -suppress 
@@ -155,6 +154,7 @@ read_vhdl -library xil_defaultlib {
   /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd
   /home/quartus/workspace/LPSC/ip/hdl/src/hdmi_interface_pkg.vhd
   /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd
+  /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_parallel_calculators.vhd
 }
 read_vhdl -vhdl2008 -library xil_defaultlib {
   /home/quartus/workspace/LPSC/ip/hdl/src/vga_stripes.vhd
@@ -164,7 +164,6 @@ read_vhdl -vhdl2008 -library xil_defaultlib {
   /home/quartus/workspace/LPSC/ip/hdl/src/serializer_10_to_1.vhd
   /home/quartus/workspace/LPSC/ip/hdl/src/vga_to_hdmi.vhd
   /home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd
-  /home/quartus/workspace/LPSC/ip/hdl/src/mse_mandelbrot.vhd
 }
 read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter.xci
 set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter_ooc.xdc]
@@ -188,10 +187,10 @@ set_property used_in_implementation false [get_files /home/quartus/workspace/LPS
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 
-synth_design -top mse_mandelbrot -part xc7a200tsbg484-1
+synth_design -top mse_mandelbrot_parallel_calculators -part xc7a200tsbg484-1
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef mse_mandelbrot.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file mse_mandelbrot_utilization_synth.rpt -pb mse_mandelbrot_utilization_synth.pb"
+write_checkpoint -force -noxdef mse_mandelbrot_parallel_calculators.dcp
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file mse_mandelbrot_parallel_calculators_utilization_synth.rpt -pb mse_mandelbrot_parallel_calculators_utilization_synth.pb"

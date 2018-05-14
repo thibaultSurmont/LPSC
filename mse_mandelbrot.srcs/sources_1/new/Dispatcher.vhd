@@ -55,13 +55,79 @@ end Dispatcher;
 
 architecture Behavioral of Dispatcher is
 
+    -- Build a subtype to manage calculators' signals
     subtype bus_elem is std_logic_vector(SIZE-1 DOWNTO 0);
-    -- TODO use that to store temporary data 
     signal  c_real_table :      bus_elem(1 to NB_CALC);
     signal  c_imag_table :      bus_elem(1 to NB_CALC);
     signal  iterations_table :  bus_elem(1 to NB_CALC);
+    
+    -- Build enumerated types for the state machines
+    type input_state_type is (RESET_STATE, WAIT_STATE, REQUEST_STATE, APPLY_STATE);
+    type output_state_type is (RESET_STATE, WAIT_STATE, STORE_STATE, ACK_STATE);
+    -- Registers to hold the current states
+    signal input_state : input_state_type;
+    signal output_state : output_state_type;
 
 begin
+
+    ---------------------------------------------------------------------------
+    -- Moore state machines
+    ---------------------------------------------------------------------------
+    Input_state_machine:
+    process (clk, rst)
+    begin
+        if rst = '1' then
+            input_state <= RESET_STATE;
+        elsif (rising_edge(clk)) then
+            -- Determine the next state synchronously, based on
+            -- the current state and the input
+            case input_state is
+                when RESET_STATE =>         
+                    -- Change state
+                    input_state <= WAIT_STATE;
+                    
+                when WAIT_STATE =>                                           
+                    -- Change state
+                    input_state <= REQUEST_STATE;
+                    
+                when REQUEST_STATE =>
+                    -- Change state
+                    input_state <= APPLY_STATE;
+                    
+                when APPLY_STATE =>                        
+                    -- Change state
+                    input_state <= WAIT_STATE;
+            end case;
+        end if;
+    end process;
+    
+    Output_state_machine:
+    process (clk, rst)
+    begin
+        if rst = '1' then
+            output_state <= RESET_STATE;
+        elsif (rising_edge(clk)) then
+            -- Determine the next state synchronously, based on
+            -- the current state and the input
+            case output_state is
+                when RESET_STATE =>         
+                    -- Change state
+                    output_state <= WAIT_STATE;
+                    
+                when WAIT_STATE =>                                           
+                    -- Change state
+                    output_state <= STORE_STATE;
+                    
+                when STORE_STATE =>
+                    -- Change state
+                    output_state <= ACK_STATE;
+                    
+                when ACK_STATE =>                        
+                    -- Change state
+                    output_state <= WAIT_STATE;
+            end case;
+        end if;
+    end process;
 
 
 end Behavioral;

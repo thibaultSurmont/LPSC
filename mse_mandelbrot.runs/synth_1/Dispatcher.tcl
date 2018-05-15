@@ -140,39 +140,13 @@ create_project -in_memory -part xc7a200tsbg484-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir /home/quartus/workspace/LPSC/mse_mandelbrot.cache/wt [current_project]
 set_property parent.project_path /home/quartus/workspace/LPSC/mse_mandelbrot.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_output_repo /home/quartus/workspace/LPSC/mse_mandelbrot.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_vhdl -library xil_defaultlib {
-  /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd
-  /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd
-  /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd
-  /home/quartus/workspace/LPSC/ip/hdl/src/hdmi_interface_pkg.vhd
-  /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd
-  /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_parallel_calculators.vhd
-}
-read_vhdl -vhdl2008 -library xil_defaultlib {
-  /home/quartus/workspace/LPSC/ip/hdl/src/vga_stripes.vhd
-  /home/quartus/workspace/LPSC/ip/hdl/src/vga_controler.vhd
-  /home/quartus/workspace/LPSC/ip/hdl/src/vga.vhd
-  /home/quartus/workspace/LPSC/ip/hdl/src/tmds_encoder.vhd
-  /home/quartus/workspace/LPSC/ip/hdl/src/serializer_10_to_1.vhd
-  /home/quartus/workspace/LPSC/ip/hdl/src/vga_to_hdmi.vhd
-  /home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd
-}
-read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter.xci
-set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter_ooc.xdc]
-
-read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.xci
-set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_board.xdc]
-set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.xdc]
-set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_ooc.xdc]
-
+read_vhdl -library xil_defaultlib /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/Dispatcher.vhd
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be
@@ -184,13 +158,11 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc /home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc
 set_property used_in_implementation false [get_files /home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc]
 
-read_xdc dont_touch.xdc
-set_property used_in_implementation false [get_files dont_touch.xdc]
 
-synth_design -top mse_mandelbrot_parallel_calculators -part xc7a200tsbg484-1
+synth_design -top Dispatcher -part xc7a200tsbg484-1
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef mse_mandelbrot_parallel_calculators.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file mse_mandelbrot_parallel_calculators_utilization_synth.rpt -pb mse_mandelbrot_parallel_calculators_utilization_synth.pb"
+write_checkpoint -force -noxdef Dispatcher.dcp
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file Dispatcher_utilization_synth.rpt -pb Dispatcher_utilization_synth.pb"

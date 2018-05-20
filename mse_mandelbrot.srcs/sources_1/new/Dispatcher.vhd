@@ -134,6 +134,8 @@ begin
                         addr_table(calc_inst) <= y_in & x_in;
                         -- Start calculator
                         start_calc(calc_inst) <= '1';
+                    -- If calculator has started
+                    elsif calc_ready(calc_inst) = '0' then
                         
                         -- Change state
                         input_state <= WAIT_STATE;
@@ -160,7 +162,7 @@ begin
                     output_state <= WAIT_STATE;
                     
                 when WAIT_STATE =>   
-                    -- Clear start_calc signal
+                    -- Clear ack_calc signal
                     ack_calc  <= (others=>'0'); 
                     -- Check if at least one calculator is ready
                     for i in 0 to NB_CALC-1 loop
@@ -172,7 +174,9 @@ begin
                             iter_to_store   <= getSubBus(iterations_bus, SIZE, calc_inst);
                             -- Write data in BRAM
                             addr            <= addr_table(calc_inst);
-                            data_valid      <= '1';  
+                            data_valid      <= '1';
+                            -- ACK calculator result
+                            ack_calc(calc_inst) <= '1';  
                                             
                             -- Change state
                             output_state <= ACK_STATE;
@@ -185,8 +189,8 @@ begin
                 when ACK_STATE =>
                     -- "data_valid" is cleared
                     data_valid      <= '0';
-                    -- ACK calculator result
-                    ack_calc(calc_inst) <= '1';
+                    -- "ack_calc" is cleared
+                    ack_calc(calc_inst) <= '0';
                     
                     -- Change state
                     output_state <= WAIT_STATE;

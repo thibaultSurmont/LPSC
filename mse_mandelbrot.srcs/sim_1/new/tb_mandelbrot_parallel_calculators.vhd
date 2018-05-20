@@ -44,6 +44,8 @@ architecture testbench of tb_mandelbrot_parallel_calculators is
     constant MAX_ITERATION :    integer := 100;
     constant VECTOR_SIZE :      integer := 16;
     
+    constant NB_CALCULATORS :   integer := 4;
+    
     component constants_generator is
         generic (   point_pos :     integer := 12; -- nombre de bits après la virgule
                     SIZE :          integer := 16);
@@ -58,7 +60,30 @@ architecture testbench of tb_mandelbrot_parallel_calculators is
                     c_imaginary :   out std_logic_vector(SIZE-1 downto 0));
     end component constants_generator;
     
-    component mandelbrot_calculator is
+    component Dispatcher is
+        generic (   SIZE :          integer := 16;
+                    NB_CALC :       integer := 2);
+        port (
+                    clk :           in  std_logic;
+                    rst :           in  std_logic;
+                    -- Constants generator interface
+                    next_cst :      out std_logic;
+                    x_in :          in  std_logic_vector(9 downto 0);
+                    y_in :          in  std_logic_vector(9 downto 0);
+                    cst_valid :     in  std_logic;
+                    -- Mandelbrot calculator interface
+                    calc_ready :        in  std_logic_vector(NB_CALC-1 downto 0);
+                    start_calc :        out std_logic_vector(NB_CALC-1 downto 0);
+                    iterations_bus :    in  std_logic_vector(NB_CALC*SIZE-1 downto 0);
+                    iter_valid :        in  std_logic_vector(NB_CALC-1 downto 0);
+                    ack_calc :          out std_logic_vector(NB_CALC-1 downto 0);
+                    -- BRAM interface
+                    addr :          out std_logic_vector(19 downto 0);
+                    data :          out std_logic_vector(7 downto 0);
+                    data_valid :    out std_logic);
+    end component Dispatcher;
+    
+    component MandelbrotCalculatorAck is
         generic (   point_pos :     integer := 12; -- nombre de bits après la virgule
                     max_iter :      integer := 100;
                     SIZE :          integer := 16);
@@ -68,12 +93,13 @@ architecture testbench of tb_mandelbrot_parallel_calculators is
                     ready :         out std_logic;
                     start :         in  std_logic;
                     finished :      out std_logic;
+                    ack :           in  std_logic;
                     c_real :        in  std_logic_vector(SIZE-1 downto 0);
                     c_imaginary :   in  std_logic_vector(SIZE-1 downto 0);
                     z_real :        out std_logic_vector(SIZE-1 downto 0);
                     z_imaginary :   out std_logic_vector(SIZE-1 downto 0);
                     iterations :    out std_logic_vector(SIZE-1 downto 0));
-    end component mandelbrot_calculator;
+    end component MandelbrotCalculatorAck;
     
     component blk_mem_iter is
         port (
@@ -86,27 +112,34 @@ architecture testbench of tb_mandelbrot_parallel_calculators is
             doutb : out std_logic_vector(7 DOWNTO 0));
     end component blk_mem_iter;
 
+    -- Stimulus
     signal sti_clk :            std_logic := '0';
     signal sti_hdmi_clk :       std_logic := '0';
     signal sti_rst :            std_logic;
+    -- Constants generator interface
+    signal obs_next_cst :       std_logic;
+    signal obs_x_in :           std_logic_vector(9 downto 0);
+    signal obs_y_in :           std_logic_vector(9 downto 0);
+    signal obs_c_real :         std_logic_vector(VECTOR_SIZE-1 downto 0);
+    signal obs_c_imag :         std_logic_vector(VECTOR_SIZE-1 downto 0);
+    signal obs_cst_valid :      std_logic;
+    -- Mandelbrot calculator interface
+    signal obs_calc_ready :     std_logic_vector(NB_CALCULATORS-1 downto 0);
+    signal obs_start_calc :     std_logic_vector(NB_CALCULATORS-1 downto 0);
+    signal obs_iterations_bus : std_logic_vector(NB_CALCULATORS*VECTOR_SIZE-1 downto 0);
+    signal obs_iter_valid :     std_logic_vector(NB_CALCULATORS-1 downto 0);
+    signal obs_ack_calc :       std_logic_vector(NB_CALCULATORS-1 downto 0);
+    -- BRAM interface
+    signal obs_addr :           std_logic_vector(19 downto 0);
+    signal obs_data :           std_logic_vector(7 downto 0);
+    signal obs_data_valid :     std_logic;
+    signal sti_addr_out :       std_logic_vector(19 downto 0);
+    signal obs_data_out :       std_logic_vector(7 downto 0);
     
-    signal obs_screen_x :       std_logic_vector(9 downto 0);
-    signal obs_screen_y :       std_logic_vector(9 downto 0);
-    
-    signal s_ready_cal :        std_logic;
-    signal s_start_cal :        std_logic;
-    signal s_c_real_cal :       std_logic_vector(VECTOR_SIZE-1 downto 0);
-    signal s_c_imaginary_cal :  std_logic_vector(VECTOR_SIZE-1 downto 0);
-    
-    signal obs_finished :       std_logic;
-    signal obs_z_real :         std_logic_vector(VECTOR_SIZE-1 downto 0);
-    signal obs_z_imaginary :    std_logic_vector(VECTOR_SIZE-1 downto 0);
-    signal obs_iterations :     std_logic_vector(VECTOR_SIZE-1 downto 0);
-    
-    signal s_screen_in :        std_logic_vector(19 downto 0);
-    signal sti_screen_out :     std_logic_vector(19 downto 0);
-    
-    signal obs_bram_out :       std_logic_vector(7 downto 0);
+    function getSubBus (fullBus : in std_logic_vector; subBusSize : integer; index : integer) return std_logic_vector is
+    begin
+        return fullBus(subBusSize*index+subBusSize-1 downto subBusSize*index);
+    end function;
 
 begin
 
@@ -129,33 +162,64 @@ begin
         port map (
             clk         => sti_clk,
             rst         => sti_rst,
-            ready       => s_ready_cal,
-            finished    => s_start_cal,
-            screen_x    => obs_screen_x,
-            screen_y    => obs_screen_y,
-            c_real      => s_c_real_cal,
-            c_imaginary => s_c_imaginary_cal);
+            ready       => obs_next_cst,
+            finished    => obs_cst_valid,
+            screen_x    => obs_x_in,
+            screen_y    => obs_y_in,
+            c_real      => obs_c_real,
+            c_imaginary => obs_c_imag);
             
     ---------------------------------------------------------------------------
-    -- Mandelbrot Calculator
+    -- Constants Generator
     ---------------------------------------------------------------------------
-    MandelbrotCalculator :
-    entity work.mandelbrot_calculator
+    CalculatorsDispatcher :
+    entity work.Dispatcher
         generic map (
-            point_pos   => POINT_POSITION,
-            max_iter    => MAX_ITERATION,
-            SIZE        => VECTOR_SIZE)
+            SIZE            => VECTOR_SIZE,
+            NB_CALC         => NB_CALCULATORS)
         port map (
-            clk         => sti_clk,
-            rst         => sti_rst,
-            ready       => s_ready_cal,
-            start       => s_start_cal,
-            finished    => obs_finished,
-            c_real      => s_c_real_cal,
-            c_imaginary => s_c_imaginary_cal,
-            z_real      => obs_z_real,
-            z_imaginary => obs_z_imaginary,
-            iterations  => obs_iterations);
+            clk             => sti_clk,
+            rst             => sti_rst,
+            -- Constants generator interface
+            next_cst        => obs_next_cst,
+            x_in            => obs_x_in,
+            y_in            => obs_y_in,
+            cst_valid       => obs_cst_valid,
+            -- Mandelbrot calculator interface
+            calc_ready      => obs_calc_ready,
+            start_calc      => obs_start_calc,
+            iterations_bus  => obs_iterations_bus,
+            iter_valid      => obs_iter_valid,
+            ack_calc        => obs_ack_calc,
+            -- BRAM interface
+            addr            => obs_addr,
+            data            => obs_data,
+            data_valid      => obs_data_valid);
+            
+    ---------------------------------------------------------------------------
+    -- Mandelbrot Calculators
+    ---------------------------------------------------------------------------
+    GEN_MandelbrotCalculator: 
+    for I in 0 to NB_CALCULATORS-1 generate
+        MandelbrotCalculatorX :
+        MandelbrotCalculatorAck
+            generic map (
+                point_pos   => POINT_POSITION,
+                max_iter    => MAX_ITERATION,
+                SIZE        => VECTOR_SIZE)
+            port map (
+                clk         => sti_clk,
+                rst         => sti_rst,
+                ready       => obs_calc_ready(I),
+                start       => obs_start_calc(I),
+                finished    => obs_iter_valid(I),
+                ack         => obs_ack_calc(I),
+                c_real      => obs_c_real,
+                c_imaginary => obs_c_imag,
+                z_real      => open,
+                z_imaginary => open,
+                iterations  => obs_iterations_bus(VECTOR_SIZE*I+VECTOR_SIZE-1 downto VECTOR_SIZE*I));
+    end generate GEN_MandelbrotCalculator;
             
     ---------------------------------------------------------------------------
     -- BRAM used to store mandelbrot_calculator results
@@ -163,12 +227,12 @@ begin
     Bram_iteration : blk_mem_iter
         port map (
             clka    => sti_clk,
-            wea(0)  => obs_finished,
-            addra   => s_screen_in,
-            dina    => obs_iterations(7 downto 0),
+            wea(0)  => obs_data_valid,
+            addra   => obs_addr,
+            dina    => obs_data,
             clkb    => sti_hdmi_clk,
-            addrb   => sti_screen_out,
-            doutb   => obs_bram_out);
+            addrb   => sti_addr_out,
+            doutb   => obs_data_out);
             
     ---------------------------------------------------------------------------
     -- Mandelbrot Simulation
@@ -190,12 +254,12 @@ begin
         -- Generate all coordonates of the display
         while screen_y < 600 loop
             
-            wait until falling_edge(obs_finished);
+            wait until falling_edge(obs_data_valid);
             
             wait until rising_edge(sti_hdmi_clk);
                 
                 -- Compute address
-                sti_screen_out <= std_logic_vector(to_unsigned(screen_y, 10)) & std_logic_vector(to_unsigned(screen_x, 10));
+                sti_addr_out <= std_logic_vector(to_unsigned(screen_y, 10)) & std_logic_vector(to_unsigned(screen_x, 10));
                 
                 -- Check address value
                 if screen_x < 1023 then
@@ -221,8 +285,5 @@ begin
 
         wait;
     end process MandelbrotSimulation;
-    
-    -- Address building
-    s_screen_in <= obs_screen_y & obs_screen_x;
 
 end testbench;

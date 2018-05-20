@@ -82,6 +82,8 @@ architecture rtl of mse_mandelbrot_parallel_calculators is
     
     constant C_POINT_POS                        : integer := 12;
     constant C_MAX_ITER                         : integer := 125;
+    
+    constant NB_CALCULATORS                     : integer := 2;
 
     component hdmi is
         generic (
@@ -119,8 +121,8 @@ architecture rtl of mse_mandelbrot_parallel_calculators is
             addrb : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
             doutb : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
     end component blk_mem_iter;
-    
-    component mandelbrot_calculator is
+        
+    component MandelbrotCalculatorAck is
         generic (   point_pos :     integer := 12; -- nombre de bits après la virgule
                     max_iter :      integer := 100;
                     SIZE :          integer := 16);
@@ -130,12 +132,36 @@ architecture rtl of mse_mandelbrot_parallel_calculators is
                     ready :         out std_logic;
                     start :         in  std_logic;
                     finished :      out std_logic;
+                    ack :           in  std_logic;
                     c_real :        in  std_logic_vector(SIZE-1 downto 0);
                     c_imaginary :   in  std_logic_vector(SIZE-1 downto 0);
                     z_real :        out std_logic_vector(SIZE-1 downto 0);
                     z_imaginary :   out std_logic_vector(SIZE-1 downto 0);
                     iterations :    out std_logic_vector(SIZE-1 downto 0));
-    end component mandelbrot_calculator;
+    end component MandelbrotCalculatorAck;
+        
+    component Dispatcher is
+            generic (   SIZE :          integer := 16;
+                        NB_CALC :       integer := 2);
+            port (
+                        clk :           in  std_logic;
+                        rst :           in  std_logic;
+                        -- Constants generator interface
+                        next_cst :      out std_logic;
+                        x_in :          in  std_logic_vector(9 downto 0);
+                        y_in :          in  std_logic_vector(9 downto 0);
+                        cst_valid :     in  std_logic;
+                        -- Mandelbrot calculator interface
+                        calc_ready :        in  std_logic_vector(NB_CALC-1 downto 0);
+                        start_calc :        out std_logic_vector(NB_CALC-1 downto 0);
+                        iterations_bus :    in  std_logic_vector(NB_CALC*SIZE-1 downto 0);
+                        iter_valid :        in  std_logic_vector(NB_CALC-1 downto 0);
+                        ack_calc :          out std_logic_vector(NB_CALC-1 downto 0);
+                        -- BRAM interface
+                        addr :          out std_logic_vector(19 downto 0);
+                        data :          out std_logic_vector(7 downto 0);
+                        data_valid :    out std_logic);
+    end component Dispatcher;
     
     component constants_generator is
         generic (   point_pos :     integer := 12; -- nombre de bits après la virgule
@@ -165,19 +191,25 @@ architecture rtl of mse_mandelbrot_parallel_calculators is
     signal HdmiSourcexD   : t_HdmiSource                                        := C_NO_HDMI_SOURCE;
     
     
-    signal s_screen_x :         std_logic_vector(9 downto 0);
-    signal s_screen_y :         std_logic_vector(9 downto 0);
-    signal s_finished_cstGen :  std_logic;
-    signal s_c_real :           std_logic_vector(C_DATA_SIZE-1 downto 0);
-    signal s_c_imaginary :      std_logic_vector(C_DATA_SIZE-1 downto 0);
-    
-    signal s_ready_mndl_cal :   std_logic;
-    signal s_finished_mndl_cal :std_logic;
-    signal s_z_real :           std_logic_vector(C_DATA_SIZE-1 downto 0);
-    signal s_z_imaginary :      std_logic_vector(C_DATA_SIZE-1 downto 0);
-    signal s_iterations :       std_logic_vector(C_DATA_SIZE-1 downto 0);
-    
-    signal s_output_bram :      std_logic_vector(7 downto 0);
+    -- Constants generator interface
+    signal s_next_cst :       std_logic;
+    signal s_x_in :           std_logic_vector(9 downto 0);
+    signal s_y_in :           std_logic_vector(9 downto 0);
+    signal s_c_real :         std_logic_vector(C_DATA_SIZE-1 downto 0);
+    signal s_c_imag :         std_logic_vector(C_DATA_SIZE-1 downto 0);
+    signal s_cst_valid :      std_logic;
+    -- Mandelbrot calculator interface
+    signal s_calc_ready :     std_logic_vector(NB_CALCULATORS-1 downto 0);
+    signal s_start_calc :     std_logic_vector(NB_CALCULATORS-1 downto 0);
+    signal s_iterations_bus : std_logic_vector(NB_CALCULATORS*C_DATA_SIZE-1 downto 0);
+    signal s_iter_valid :     std_logic_vector(NB_CALCULATORS-1 downto 0);
+    signal s_ack_calc :       std_logic_vector(NB_CALCULATORS-1 downto 0);
+    -- BRAM interface
+    signal s_addr :           std_logic_vector(19 downto 0);
+    signal s_data :           std_logic_vector(7 downto 0);
+    signal s_data_valid :     std_logic;
+    signal s_addr_out :       std_logic_vector(19 downto 0);
+    signal s_data_out :       std_logic_vector(7 downto 0);
 
     -- Debug signals
 
@@ -266,32 +298,64 @@ begin  -- architecture rtl
     Bram_iteration : blk_mem_iter
         port map (
             clka    => ClkSys100MhzxC,
-            wea(0)  => s_finished_mndl_cal,
-            addra   => (s_screen_y & s_screen_x),
-            dina    => s_iterations(7 downto 0),
+            wea(0)  => s_data_valid,
+            addra   => s_addr,
+            dina    => s_data,
             clkb    => ClkVgaxC,
-            addrb   => (VCountxD(9 downto 0) & HCountxD(9 downto 0)),
-            doutb   => s_output_bram);
+            addrb   => s_addr_out,
+            doutb   => s_data_out);
     
     ---------------------------------------------------------------------------
-    -- Mandelbrot Calculator
+    -- Mandelbrot Calculators
     ---------------------------------------------------------------------------
-    MandelbrotCalculator : entity work.mandelbrot_calculator
+    GEN_MandelbrotCalculator: 
+    for I in 0 to NB_CALCULATORS-1 generate
+        MandelbrotCalculatorX :
+        MandelbrotCalculatorAck
+            generic map (
+                point_pos   => C_POINT_POS,
+                max_iter    => C_MAX_ITER,
+                SIZE        => C_DATA_SIZE)
+            port map (
+                clk         => ClkSys100MhzxC,
+                rst         => RstxR,
+                ready       => s_calc_ready(I),
+                start       => s_start_calc(I),
+                finished    => s_iter_valid(I),
+                ack         => s_ack_calc(I),
+                c_real      => s_c_real,
+                c_imaginary => s_c_imag,
+                z_real      => open,
+                z_imaginary => open,
+                iterations  => s_iterations_bus(C_DATA_SIZE*I+C_DATA_SIZE-1 downto C_DATA_SIZE*I));
+    end generate GEN_MandelbrotCalculator;
+            
+    ---------------------------------------------------------------------------
+    -- Dispatcher
+    ---------------------------------------------------------------------------
+    CalculatorsDispatcher :
+    entity work.Dispatcher
         generic map (
-            point_pos   => C_POINT_POS,
-            max_iter    => C_MAX_ITER,
-            SIZE        => C_DATA_SIZE)
+            SIZE            => C_DATA_SIZE,
+            NB_CALC         => NB_CALCULATORS)
         port map (
-            clk         => ClkSys100MhzxC,
-            rst         => RstxR,
-            ready       => s_ready_mndl_cal,
-            start       => s_finished_cstGen,
-            finished    => s_finished_mndl_cal,
-            c_real      => s_c_real,
-            c_imaginary => s_c_imaginary,
-            z_real      => s_z_real,
-            z_imaginary => s_z_imaginary,
-            iterations  => s_iterations);
+            clk             => ClkSys100MhzxC,
+            rst             => RstxR,
+            -- Constants generator interface
+            next_cst        => s_next_cst,
+            x_in            => s_x_in,
+            y_in            => s_y_in,
+            cst_valid       => s_cst_valid,
+            -- Mandelbrot calculator interface
+            calc_ready      => s_calc_ready,
+            start_calc      => s_start_calc,
+            iterations_bus  => s_iterations_bus,
+            iter_valid      => s_iter_valid,
+            ack_calc        => s_ack_calc,
+            -- BRAM interface
+            addr            => s_addr,
+            data            => s_data,
+            data_valid      => s_data_valid);
             
     ---------------------------------------------------------------------------
     -- Constants Generator
@@ -303,15 +367,17 @@ begin  -- architecture rtl
         port map (
             clk         => ClkSys100MhzxC,
             rst         => RstxR,
-            ready       => s_ready_mndl_cal,
-            finished    => s_finished_cstGen,
-            screen_x    => s_screen_x,
-            screen_y    => s_screen_y,
+            ready       => s_next_cst,
+            finished    => s_cst_valid,
+            screen_x    => s_x_in,
+            screen_y    => s_y_in,
             c_real      => s_c_real,
-            c_imaginary => s_c_imaginary);
+            c_imaginary => s_c_imag);
             
-    DataxD  <=  s_output_bram(7 downto 1) & '0' &
-                s_output_bram(7 downto 1) & '0' &
-                s_output_bram(7 downto 1) & '0';
+    s_addr_out  <=  VCountxD(9 downto 0) & HCountxD(9 downto 0);
+            
+    DataxD      <=  s_data_out(7 downto 1) & '0' &
+                    s_data_out(7 downto 1) & '0' &
+                    s_data_out(7 downto 1) & '0';
 
 end architecture rtl;

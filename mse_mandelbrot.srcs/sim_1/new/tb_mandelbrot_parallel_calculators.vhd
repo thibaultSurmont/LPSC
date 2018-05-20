@@ -135,11 +135,6 @@ architecture testbench of tb_mandelbrot_parallel_calculators is
     signal obs_data_valid :     std_logic;
     signal sti_addr_out :       std_logic_vector(19 downto 0);
     signal obs_data_out :       std_logic_vector(7 downto 0);
-    
-    function getSubBus (fullBus : in std_logic_vector; subBusSize : integer; index : integer) return std_logic_vector is
-    begin
-        return fullBus(subBusSize*index+subBusSize-1 downto subBusSize*index);
-    end function;
 
 begin
 
@@ -170,7 +165,7 @@ begin
             c_imaginary => obs_c_imag);
             
     ---------------------------------------------------------------------------
-    -- Constants Generator
+    -- Dispatcher
     ---------------------------------------------------------------------------
     CalculatorsDispatcher :
     entity work.Dispatcher

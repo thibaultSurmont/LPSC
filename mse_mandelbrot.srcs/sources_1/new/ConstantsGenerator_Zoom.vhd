@@ -61,31 +61,20 @@ architecture Behavioral of ConstantsGenerator_Zoom is
         return std_logic_vector(to_signed(int, vector_size) sll fix_point_pos);
     end int2FixPointIntPart;
     
-    function getDeltaInt (axisRange, nbPixels, zoom, fix_point_pos : integer) return integer is        
+    impure function getDeltaInt (axisRange, nbPixels, fix_point_pos : integer) return integer is        
     begin
-        return integer(real(real(4) * real(50) / real(2) / real(1)));
+        return integer(real(real(axisRange) * real(2**fix_point_pos) / real(nbPixels)));
     end getDeltaInt;
     
-    function getDelta (axisRange, nbPixels, zoomFactor, fix_point_pos, vector_size : integer) return std_logic_vector is        
+    function getDelta (axisRange, nbPixels, fix_point_pos, vector_size : integer) return std_logic_vector is        
     begin
-        return std_logic_vector(to_signed(getDeltaInt(axisRange, nbPixels, 2**zoomFactor, fix_point_pos), vector_size));
+        return std_logic_vector(to_signed(getDeltaInt(axisRange, nbPixels, fix_point_pos), vector_size));
     end getDelta;
     
     function slv2int (slv : std_logic_vector) return integer is        
     begin
         return to_integer(unsigned(slv));
     end slv2int;
-    
-    impure function rightShift (slv, shift : std_logic_vector) return std_logic_vector is 
-        variable shiftInt := slv2int(shift);      
-    begin
-        return ZERO(2 downto 0) & slv(SIZE-1 downto shiftInt);
-    end rightShift;
-    
-    impure function leftShift (slv, shift : std_logic_vector) return std_logic_vector is        
-    begin
-        return slv(slv'length-slv2int(shift)-1 downto 0) & ZERO(slv2int(shift)-1 downto 0);
-    end leftShift;
     
 
     -- Constants
@@ -98,9 +87,11 @@ architecture Behavioral of ConstantsGenerator_Zoom is
     constant C_IMAG_MAX :       integer := 1;
     constant C_IMAG_RANGE :     integer := C_IMAG_MAX - C_IMAG_MIN;
     
+    constant C_SCREEN_DIV :     integer := 3;
+    
     -- Signals
-    signal s_delta_c_real : std_logic_vector(SIZE-1 downto 0) := getDelta(C_REAL_RANGE, SCREEN_SIZE_X, 0, point_pos, SIZE);
-    signal s_delta_c_imag : std_logic_vector(SIZE-1 downto 0) := getDelta(C_IMAG_RANGE, SCREEN_SIZE_Y, 0, point_pos, SIZE);
+    signal s_delta_c_real : std_logic_vector(SIZE-1 downto 0) := getDelta(C_REAL_RANGE, SCREEN_SIZE_X, point_pos, SIZE);
+    signal s_delta_c_imag : std_logic_vector(SIZE-1 downto 0) := getDelta(C_IMAG_RANGE, SCREEN_SIZE_Y, point_pos, SIZE);
         
     signal s_c_real :       std_logic_vector(SIZE-1 downto 0);
     signal s_c_imag :       std_logic_vector(SIZE-1 downto 0);
@@ -121,7 +112,7 @@ architecture Behavioral of ConstantsGenerator_Zoom is
 
 begin
 
-    SyncProcess:
+    ComputeProcess:
     process (clk) is
     begin
     
@@ -215,26 +206,26 @@ begin
             -- Rising Edge detection
             -- up
             if s_up(2) = '0' and s_up(1) = '1' then
-                s_imag_shift    <= std_logic_vector(signed(s_imag_shift) + signed(leftShift(s_delta_c_imag, X"3")));
+                s_imag_shift    <= std_logic_vector(signed(s_imag_shift) + (signed(s_delta_c_imag) sll C_SCREEN_DIV));
             end if;
             -- left
             if s_left(2) = '0' and s_left(1) = '1' then
-                s_real_shift    <= std_logic_vector(signed(s_real_shift) - signed(leftShift(s_delta_c_real, X"3")));
+                s_real_shift    <= std_logic_vector(signed(s_real_shift) - (signed(s_delta_c_real) sll C_SCREEN_DIV));
             end if;
             -- down
             if s_down(2) = '0' and s_down(1) = '1' then
-                s_imag_shift    <= std_logic_vector(signed(s_imag_shift) - signed(leftShift(s_delta_c_imag, X"3")));
+                s_imag_shift    <= std_logic_vector(signed(s_imag_shift) - (signed(s_delta_c_imag) sll C_SCREEN_DIV));
             end if;
             -- right
             if s_right(2) = '0' and s_right(1) = '1' then
-                s_real_shift    <= std_logic_vector(signed(s_real_shift) + signed(leftShift(s_delta_c_real, X"3")));
+                s_real_shift    <= std_logic_vector(signed(s_real_shift) + (signed(s_delta_c_real) sll C_SCREEN_DIV));
             end if;
             -- zoom
             if s_zoom(2) = '0' and s_zoom(1) = '1' then
                 s_zoomExp   <= std_logic_vector(unsigned(s_zoomExp) + 1);
                 if s_zoomExp /= "000" then
-                    s_real_shift    <= rightShift(int2FixPointIntPart(C_REAL_RANGE, point_pos, SIZE), s_zoomExp);
-                    s_imag_shift    <= rightShift(int2FixPointIntPart(C_IMAG_RANGE, point_pos, SIZE), s_zoomExp);
+                    s_real_shift    <= std_logic_vector((signed(int2FixPointIntPart(C_REAL_RANGE, point_pos, SIZE)) srl slv2int(s_zoomExp)));
+                    s_imag_shift    <= std_logic_vector((signed(int2FixPointIntPart(C_IMAG_RANGE, point_pos, SIZE)) srl slv2int(s_zoomExp)));
                 else
                     s_real_shift    <= (others=>'0');
                     s_imag_shift    <= (others=>'0');
@@ -251,7 +242,7 @@ begin
     c_imaginary <= s_c_imag;
     finished    <= s_finished;
     
-    s_delta_c_real  <= getDelta(C_REAL_RANGE, SCREEN_SIZE_X, to_integer(unsigned(s_zoomExp)), point_pos, SIZE);
-    s_delta_c_imag  <= getDelta(C_IMAG_RANGE, SCREEN_SIZE_Y, to_integer(unsigned(s_zoomExp)), point_pos, SIZE);
+    s_delta_c_real  <= std_logic_vector((signed(getDelta(C_REAL_RANGE, SCREEN_SIZE_X, point_pos, SIZE)) srl slv2int(s_zoomExp)));
+    s_delta_c_imag  <= std_logic_vector((signed(getDelta(C_IMAG_RANGE, SCREEN_SIZE_Y, point_pos, SIZE)) srl slv2int(s_zoomExp)));
 
 end Behavioral;

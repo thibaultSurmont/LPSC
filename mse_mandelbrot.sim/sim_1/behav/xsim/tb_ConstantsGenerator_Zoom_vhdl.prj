@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../mse_mandelbrot.srcs/sources_1/new/ConstantsGenerator_Zoom.vhd" \
+"../../../../mse_mandelbrot.srcs/sim_1/new/tb_ConstantsGenerator_Zoom.vhd" \
+
+# Do not sort compile order
+nosort

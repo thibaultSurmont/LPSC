@@ -83,7 +83,7 @@ architecture rtl of mse_mandelbrot_parallel_calculators is
     constant C_POINT_POS                        : integer := 12;
     constant C_MAX_ITER                         : integer := 125;
     
-    constant NB_CALCULATORS                     : integer := 2;
+    constant NB_CALCULATORS                     : integer := 4;
 
     component hdmi is
         generic (

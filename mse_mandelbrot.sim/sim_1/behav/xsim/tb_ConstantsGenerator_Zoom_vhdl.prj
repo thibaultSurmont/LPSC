@@ -1,7 +1,51 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_640x480/clk_vga_hdmi_640x480_sim_netlist.vhdl" \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_800x600/clk_vga_hdmi_800x600_sim_netlist.vhdl" \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/clk_vga_1024x600/clk_vga_1024x600_sim_netlist.vhdl" \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x768/clk_vga_hdmi_1024x768_sim_netlist.vhdl" \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/clk_hdmi_1024x600/clk_hdmi_1024x600_sim_netlist.vhdl" \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/clk_vga_640x480/clk_vga_640x480_sim_netlist.vhdl" \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/clk_hdmi_640x480/clk_hdmi_640x480_sim_netlist.vhdl" \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_sim_netlist.vhdl" \
 "../../../../mse_mandelbrot.srcs/sources_1/new/ConstantsGenerator_Zoom.vhd" \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter_sim_netlist.vhdl" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/Dispatcher.vhd" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/generic_register.vhd" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/MandelbrotCalculatorAck.vhd" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/constants_generator.vhd" \
+"../../../../ip/hdl/src/hdmi_interface_pkg.vhd" \
+
+vhdl2008 xil_defaultlib  \
+"../../../../ip/hdl/src/vga_stripes.vhd" \
+"../../../../ip/hdl/src/vga_controler.vhd" \
+"../../../../ip/hdl/src/vga.vhd" \
+"../../../../ip/hdl/src/tmds_encoder.vhd" \
+"../../../../ip/hdl/src/serializer_10_to_1.vhd" \
+"../../../../ip/hdl/src/vga_to_hdmi.vhd" \
+"../../../../ip/hdl/src/hdmi.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../../mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_parallel_calculators.vhd" \
+"../../../../mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator.vhd" \
+
+vhdl2008 xil_defaultlib  \
+"../../../../ip/hdl/src/mse_mandelbrot.vhd" \
+"../../../../ip/hdl/src/image_generator.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/clk_mandelbrot/clk_mandelbrot_sim_netlist.vhdl" \
+"../../../../mse_mandelbrot.srcs/sources_1/ip/bram_video_memory_d786432_w9_rdclk1_wrclk1/bram_video_memory_d786432_w9_rdclk1_wrclk1_sim_netlist.vhdl" \
 "../../../../mse_mandelbrot.srcs/sim_1/new/tb_ConstantsGenerator_Zoom.vhd" \
+"../../../../mse_mandelbrot.srcs/sim_1/new/tb_mandelbrot_parallel_calculators.vhd" \
+"../../../../mse_mandelbrot.srcs/sim_1/new/tb_mandelbrot_calculator_ack.vhd" \
+"../../../../mse_mandelbrot.srcs/sim_1/new/tb_mandelbrot.vhd" \
+"../../../../mse_mandelbrot.srcs/sim_1/new/tb_mandelbrot_calculator.vhd" \
+"../../../../mse_mandelbrot.srcs/sim_1/new/tb_bram.vhd" \
+
+vhdl2008 xil_defaultlib  \
+"../../../../ip/hdl/src/tb_tmds_encoder.vhd" \
 
 # Do not sort compile order
 nosort

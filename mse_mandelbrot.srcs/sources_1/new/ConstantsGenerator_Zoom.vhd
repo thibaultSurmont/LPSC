@@ -76,6 +76,13 @@ architecture Behavioral of ConstantsGenerator_Zoom is
         return to_integer(unsigned(slv));
     end slv2int;
     
+    function computeShift (axisRange, fix_point_pos, vector_size, zoom : integer) return std_logic_vector is 
+        constant baseRange :    signed := signed(int2FixPointIntPart(axisRange, fix_point_pos, vector_size));
+        constant newRange :     signed := baseRange srl zoom;      
+    begin
+        return std_logic_vector( (baseRange - newRange) srl 1);
+    end computeShift;
+    
 
     -- Constants
     constant SCREEN_SIZE_X :    integer := 1024;
@@ -142,7 +149,7 @@ begin
                     else
                     
                         s_x         <= (others => '0');
-                        s_c_real    <= std_logic_vector(signed(int2FixPointIntPart(C_REAL_MIN, point_pos, SIZE)) - signed(s_real_shift));
+                        s_c_real    <= std_logic_vector(signed(int2FixPointIntPart(C_REAL_MIN, point_pos, SIZE)) + signed(s_real_shift));
                         -- Next Y axis & C imaginary
                         if s_y < std_logic_vector(to_unsigned(SCREEN_SIZE_Y-1, s_y'length)) then
                         
@@ -224,8 +231,8 @@ begin
             if s_zoom(2) = '0' and s_zoom(1) = '1' then
                 s_zoomExp   <= std_logic_vector(unsigned(s_zoomExp) + 1);
                 if s_zoomExp /= "000" then
-                    s_real_shift    <= std_logic_vector((signed(int2FixPointIntPart(C_REAL_RANGE, point_pos, SIZE)) srl slv2int(s_zoomExp)));
-                    s_imag_shift    <= std_logic_vector((signed(int2FixPointIntPart(C_IMAG_RANGE, point_pos, SIZE)) srl slv2int(s_zoomExp)));
+                    s_real_shift    <= computeShift(C_REAL_RANGE, point_pos, SIZE, slv2int(s_zoomExp)+1);
+                    s_imag_shift    <= computeShift(C_IMAG_RANGE, point_pos, SIZE, slv2int(s_zoomExp)+1);
                 else
                     s_real_shift    <= (others=>'0');
                     s_imag_shift    <= (others=>'0');

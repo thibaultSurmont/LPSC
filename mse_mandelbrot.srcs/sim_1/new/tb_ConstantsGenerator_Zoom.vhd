@@ -38,13 +38,10 @@ end tb_ConstantsGenerator_Zoom;
 architecture testbench of tb_ConstantsGenerator_Zoom is
 
     constant CLK_PERIOD :       time := 10 ns;
-    constant CLK_HDMI_PERIOD :  time := 25 ns;
 
     constant POINT_POSITION :   integer := 12;
     constant MAX_ITERATION :    integer := 100;
     constant VECTOR_SIZE :      integer := 16;
-    
-    constant NB_CALCULATORS :   integer := 4;
     
     component ConstantsGenerator_Zoom is
         generic (   
@@ -144,6 +141,12 @@ begin
         sti_rst <= '0';
         
         sti_zoom    <= '1';
+        wait until rising_edge(sti_clk);
+        sti_zoom    <= '0';
+        sti_right   <= '1';
+        wait until rising_edge(sti_clk);
+        sti_zoom    <= '0';
+        
         
         -- Infinite loop
         while true loop

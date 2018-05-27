@@ -53,7 +53,19 @@ end ConstantsGenerator_Zoom;
 
 architecture Behavioral of ConstantsGenerator_Zoom is
 
-    signal ZERO : std_logic_vector(SIZE-1 downto 0) := (others=>'0');
+    -- Constants
+    constant SCREEN_SIZE_X :    integer := 1024;
+    constant SCREEN_SIZE_Y :    integer := 600;
+    constant C_REAL_MIN :       integer := -2;
+    constant C_REAL_MAX :       integer := 1;
+    constant C_REAL_RANGE :     integer := C_REAL_MAX - C_REAL_MIN;
+    constant C_IMAG_MIN :       integer := -1;
+    constant C_IMAG_MAX :       integer := 1;
+    constant C_IMAG_RANGE :     integer := C_IMAG_MAX - C_IMAG_MIN;
+    
+    constant C_SCREEN_DIV :     integer := 4;
+    
+    constant ZERO :             std_logic_vector(SIZE-1 downto 0) := (others=>'0');
     
     -- Functions
     function int2FixPointIntPart (int : integer; fix_point_pos : integer; vector_size : integer) return std_logic_vector is
@@ -76,40 +88,28 @@ architecture Behavioral of ConstantsGenerator_Zoom is
         return to_integer(unsigned(slv));
     end slv2int;
     
-    function computeShift (axisRange, fix_point_pos, vector_size, zoom : integer) return std_logic_vector is 
+    function computeShift (shift : std_logic_vector; axisRange, fix_point_pos, vector_size, zoom : integer) return std_logic_vector is 
         constant baseRange :    signed := signed(int2FixPointIntPart(axisRange, fix_point_pos, vector_size));
         constant newRange :     signed := baseRange srl zoom;      
     begin
-        return std_logic_vector( (baseRange - newRange) srl 1);
+        return std_logic_vector( signed(shift) + ((baseRange - newRange) srl zoom));
     end computeShift;
     
-
-    -- Constants
-    constant SCREEN_SIZE_X :    integer := 1024;
-    constant SCREEN_SIZE_Y :    integer := 600;
-    constant C_REAL_MIN :       integer := -2;
-    constant C_REAL_MAX :       integer := 1;
-    constant C_REAL_RANGE :     integer := C_REAL_MAX - C_REAL_MIN;
-    constant C_IMAG_MIN :       integer := -1;
-    constant C_IMAG_MAX :       integer := 1;
-    constant C_IMAG_RANGE :     integer := C_IMAG_MAX - C_IMAG_MIN;
+    procedure updateValues (signal xAxis, yAxis, real_cst, imag_cst : inout std_logic_vector; variable real_shift, imag_shift : inout std_logic_vector) is    
+    begin
+        xAxis       <= (others => '0');
+        real_cst    <= std_logic_vector(signed(int2FixPointIntPart(C_REAL_MIN, point_pos, SIZE)) + signed(real_shift));
+        yAxis       <= (others => '0');
+        imag_cst    <= std_logic_vector(signed(int2FixPointIntPart(C_IMAG_MAX, point_pos, SIZE)) - signed(imag_shift));
+    end updateValues;
     
-    constant C_SCREEN_DIV :     integer := 3;
-    
-    -- Signals
-    signal s_delta_c_real : std_logic_vector(SIZE-1 downto 0) := getDelta(C_REAL_RANGE, SCREEN_SIZE_X, point_pos, SIZE);
-    signal s_delta_c_imag : std_logic_vector(SIZE-1 downto 0) := getDelta(C_IMAG_RANGE, SCREEN_SIZE_Y, point_pos, SIZE);
-        
+    -- Signals       
     signal s_c_real :       std_logic_vector(SIZE-1 downto 0);
     signal s_c_imag :       std_logic_vector(SIZE-1 downto 0);
     signal s_x :            std_logic_vector(9 downto 0);
     signal s_y :            std_logic_vector(9 downto 0);
     signal s_after_reset :  std_logic;
     signal s_finished :     std_logic;   
-    
-    signal s_zoomExp :      std_logic_vector(1 downto 0);
-    signal s_real_shift :   std_logic_vector(SIZE-1 downto 0);
-    signal s_imag_shift :   std_logic_vector(SIZE-1 downto 0);
     
     signal s_up :           std_logic_vector(2 downto 0);
     signal s_left :         std_logic_vector(2 downto 0);
@@ -121,6 +121,11 @@ begin
 
     ComputeProcess:
     process (clk) is
+        variable delta_c_real :   std_logic_vector(SIZE-1 downto 0)   := getDelta(C_REAL_RANGE, SCREEN_SIZE_X, point_pos, SIZE);
+        variable delta_c_imag :   std_logic_vector(SIZE-1 downto 0)   := getDelta(C_IMAG_RANGE, SCREEN_SIZE_Y, point_pos, SIZE);
+        variable zoomExp :          std_logic_vector(1 downto 0)        := (others=>'0');
+        variable real_shift :       std_logic_vector(SIZE-1 downto 0)   := (others=>'0');
+        variable imag_shift :       std_logic_vector(SIZE-1 downto 0)   := (others=>'0');
     begin
     
         -- Synchronization
@@ -134,112 +139,121 @@ begin
                 s_y             <= (others => '0');
                 s_c_real        <= int2FixPointIntPart(C_REAL_MIN, point_pos, SIZE);
                 s_c_imag        <= int2FixPointIntPart(C_IMAG_MAX, point_pos, SIZE);
+                delta_c_real    := std_logic_vector((signed(getDelta(C_REAL_RANGE, SCREEN_SIZE_X, point_pos, SIZE))));
+                delta_c_imag    := std_logic_vector((signed(getDelta(C_IMAG_RANGE, SCREEN_SIZE_Y, point_pos, SIZE))));
                 s_finished      <= '0';
                 s_after_reset   <= '1';
-            -- Compute next values if ready is set
-            elsif ready = '1' and s_finished = '0' then
-            
-                -- Do nothing after reset
-                if s_after_reset = '0' then
-                    -- Next X axis & C real
-                    if s_x < std_logic_vector(to_unsigned(SCREEN_SIZE_X-1, s_x'length)) then
-                    
-                        s_x         <= std_logic_vector(unsigned(s_x) + 1);
-                        s_c_real    <= std_logic_vector(signed(s_c_real) + signed(s_delta_c_real));
-                    else
-                    
-                        s_x         <= (others => '0');
-                        s_c_real    <= std_logic_vector(signed(int2FixPointIntPart(C_REAL_MIN, point_pos, SIZE)) + signed(s_real_shift));
-                        -- Next Y axis & C imaginary
-                        if s_y < std_logic_vector(to_unsigned(SCREEN_SIZE_Y-1, s_y'length)) then
+                zoomExp         := (others=>'0');
+                real_shift      := (others=>'0');
+                imag_shift      := (others=>'0');
+                -- Inputs synchronized
+                s_up            <= (others=>'0');
+                s_left          <= (others=>'0');
+                s_down          <= (others=>'0');
+                s_right         <= (others=>'0');
+                s_zoom          <= (others=>'0');
+            -- Sync process
+            else            
+                -- Compute next values if ready is set
+                if ready = '1' and s_finished = '0' then
+                
+                    -- Do nothing after reset
+                    if s_after_reset = '0' then
+                        -- Next X axis & C real
+                        if s_x < std_logic_vector(to_unsigned(SCREEN_SIZE_X-1, s_x'length)) then
                         
-                            s_y         <= std_logic_vector(unsigned(s_y) + 1);
-                            s_c_imag    <= std_logic_vector(signed(s_c_imag) - signed(s_delta_c_imag));
-                        -- End of Screen
+                            s_x         <= std_logic_vector(unsigned(s_x) + 1);
+                            s_c_real    <= std_logic_vector(signed(s_c_real) + signed(delta_c_real));
                         else
-                           s_y      <= (others => '0');
-                           s_c_imag <= std_logic_vector(signed(int2FixPointIntPart(C_IMAG_MAX, point_pos, SIZE)) - signed(s_imag_shift));
+                        
+                            s_x         <= (others => '0');
+                            s_c_real    <= std_logic_vector(signed(int2FixPointIntPart(C_REAL_MIN, point_pos, SIZE)) + signed(real_shift));
+                            -- Next Y axis & C imaginary
+                            if s_y < std_logic_vector(to_unsigned(SCREEN_SIZE_Y-1, s_y'length)) then
+                            
+                                s_y         <= std_logic_vector(unsigned(s_y) + 1);
+                                s_c_imag    <= std_logic_vector(signed(s_c_imag) - signed(delta_c_imag));
+                            -- End of Screen
+                            else
+                               s_y      <= (others => '0');
+                               s_c_imag <= std_logic_vector(signed(int2FixPointIntPart(C_IMAG_MAX, point_pos, SIZE)) - signed(imag_shift));
+                            end if;
                         end if;
-                    end if;
+                    else
+                        -- Clear signal
+                        s_after_reset <= '0'; 
+                    end if; 
+                    -- New values available
+                    s_finished <= '1'; 
                 else
-                    -- Clear signal
-                    s_after_reset <= '0'; 
+                    s_finished <= '0';   
                 end if; 
-                -- New values available
-                s_finished <= '1'; 
-            else
-                s_finished <= '0';   
-            end if; 
-        end if; 
-    end process;
-    
-    ZoomProcess:
-    process (clk) is
-    begin
-        -- Reset
-        if rst = '1' then
-            s_zoomExp       <= (others=>'0');
-            s_real_shift    <= (others=>'0');
-            s_imag_shift    <= (others=>'0');
-            -- Inputs synchronized
-            s_up            <= (others=>'0');
-            s_left          <= (others=>'0');
-            s_down          <= (others=>'0');
-            s_right         <= (others=>'0');
-            s_zoom          <= (others=>'0');
-        else
-            -- Synchronisation
-            -- up
-            s_up(0)    <= up;
-            s_up(1)    <= s_up(0);
-            s_up(2)    <= s_up(1);
-            -- left
-            s_left(0)  <= left;
-            s_left(1)  <= s_left(0);
-            s_left(2)  <= s_left(1);
-            -- down
-            s_down(0)  <= down;
-            s_down(1)  <= s_down(0);
-            s_down(2)  <= s_down(1);
-            -- right
-            s_right(0) <= right;
-            s_right(1) <= s_right(0);
-            s_right(2) <= s_right(1);
-            -- zoom
-            s_zoom(0)  <= zoom;
-            s_zoom(1)  <= s_zoom(0);
-            s_zoom(2)  <= s_zoom(1);
-            
-            -- Rising Edge detection
-            -- up
-            if s_up(2) = '0' and s_up(1) = '1' then
-                s_imag_shift    <= std_logic_vector(signed(s_imag_shift) + (signed(s_delta_c_imag) sll C_SCREEN_DIV));
-            end if;
-            -- left
-            if s_left(2) = '0' and s_left(1) = '1' then
-                s_real_shift    <= std_logic_vector(signed(s_real_shift) - (signed(s_delta_c_real) sll C_SCREEN_DIV));
-            end if;
-            -- down
-            if s_down(2) = '0' and s_down(1) = '1' then
-                s_imag_shift    <= std_logic_vector(signed(s_imag_shift) - (signed(s_delta_c_imag) sll C_SCREEN_DIV));
-            end if;
-            -- right
-            if s_right(2) = '0' and s_right(1) = '1' then
-                s_real_shift    <= std_logic_vector(signed(s_real_shift) + (signed(s_delta_c_real) sll C_SCREEN_DIV));
-            end if;
-            -- zoom
-            if s_zoom(2) = '0' and s_zoom(1) = '1' then
-                s_zoomExp   <= std_logic_vector(unsigned(s_zoomExp) + 1);
-                if s_zoomExp /= "000" then
-                    s_real_shift    <= computeShift(C_REAL_RANGE, point_pos, SIZE, slv2int(s_zoomExp)+1);
-                    s_imag_shift    <= computeShift(C_IMAG_RANGE, point_pos, SIZE, slv2int(s_zoomExp)+1);
-                else
-                    s_real_shift    <= (others=>'0');
-                    s_imag_shift    <= (others=>'0');
+                
+                -- Inputs Synchronisation
+                -- up
+                s_up(0)    <= up;
+                s_up(1)    <= s_up(0);
+                s_up(2)    <= s_up(1);
+                -- left
+                s_left(0)  <= left;
+                s_left(1)  <= s_left(0);
+                s_left(2)  <= s_left(1);
+                -- down
+                s_down(0)  <= down;
+                s_down(1)  <= s_down(0);
+                s_down(2)  <= s_down(1);
+                -- right
+                s_right(0) <= right;
+                s_right(1) <= s_right(0);
+                s_right(2) <= s_right(1);
+                -- zoom
+                s_zoom(0)  <= zoom;
+                s_zoom(1)  <= s_zoom(0);
+                s_zoom(2)  <= s_zoom(1);
+                
+                -- Rising Edges detection
+                -- up
+                if s_up(2) = '0' and s_up(1) = '1' then
+                    imag_shift    := std_logic_vector(signed(imag_shift) - (signed(delta_c_imag) sll C_SCREEN_DIV));
+                    
+                    updateValues (s_x, s_y, s_c_real, s_c_imag, real_shift, imag_shift);
                 end if;
-            end if;            
+                -- left
+                if s_left(2) = '0' and s_left(1) = '1' then
+                    real_shift    := std_logic_vector(signed(real_shift) - (signed(delta_c_real) sll C_SCREEN_DIV));
+                    
+                    updateValues (s_x, s_y, s_c_real, s_c_imag, real_shift, imag_shift);
+                 end if;
+                -- down
+                if s_down(2) = '0' and s_down(1) = '1' then
+                    imag_shift    := std_logic_vector(signed(imag_shift) + (signed(delta_c_imag) sll C_SCREEN_DIV));
+                    
+                    updateValues (s_x, s_y, s_c_real, s_c_imag, real_shift, imag_shift);
+                end if;
+                -- right
+                if s_right(2) = '0' and s_right(1) = '1' then
+                    real_shift    := std_logic_vector(signed(real_shift) + (signed(delta_c_real) sll C_SCREEN_DIV));
+                    
+                    updateValues (s_x, s_y, s_c_real, s_c_imag, real_shift, imag_shift);
+                end if;
+                -- zoom
+                if s_zoom(2) = '0' and s_zoom(1) = '1' then
+                    zoomExp   := std_logic_vector(unsigned(zoomExp) + 1);
+                    if zoomExp > B"00" then
+                        real_shift    := computeShift(real_shift, C_REAL_RANGE, point_pos, SIZE, slv2int(zoomExp));
+                        imag_shift    := computeShift(imag_shift, C_IMAG_RANGE, point_pos, SIZE, slv2int(zoomExp));
+                    else
+                        real_shift    := (others=>'0');
+                        imag_shift    := (others=>'0');
+                    end if;
+                    
+                    delta_c_real  := std_logic_vector((signed(getDelta(C_REAL_RANGE, SCREEN_SIZE_X, point_pos, SIZE)) srl slv2int(zoomExp)));
+                    delta_c_imag  := std_logic_vector((signed(getDelta(C_IMAG_RANGE, SCREEN_SIZE_Y, point_pos, SIZE)) srl slv2int(zoomExp)));
+                    
+                    updateValues (s_x, s_y, s_c_real, s_c_imag, real_shift, imag_shift);
+                end if;
+            end if; 
         end if;
-        
     end process;
 
     -- Affect signals
@@ -248,8 +262,5 @@ begin
     c_real      <= s_c_real;
     c_imaginary <= s_c_imag;
     finished    <= s_finished;
-    
-    s_delta_c_real  <= std_logic_vector((signed(getDelta(C_REAL_RANGE, SCREEN_SIZE_X, point_pos, SIZE)) srl slv2int(s_zoomExp)));
-    s_delta_c_imag  <= std_logic_vector((signed(getDelta(C_IMAG_RANGE, SCREEN_SIZE_Y, point_pos, SIZE)) srl slv2int(s_zoomExp)));
 
 end Behavioral;

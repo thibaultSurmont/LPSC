@@ -89,9 +89,9 @@ architecture rtl of mse_mandelbrot_Z is
     constant C_BRAM_VIDEO_MEMORY_DATA_SIZE      : integer := 9;
     
     constant C_POINT_POS                        : integer := 12;
-    constant C_MAX_ITER                         : integer := 511;
+    constant C_MAX_ITER                         : integer := 2047;
     
-    constant NB_CALCULATORS                     : integer := 1;
+    constant NB_CALCULATORS                     : integer := 8;
 
     component hdmi is
         generic (
@@ -124,10 +124,10 @@ architecture rtl of mse_mandelbrot_Z is
             clka :  IN STD_LOGIC;
             wea :   IN STD_LOGIC_VECTOR(0 DOWNTO 0);
             addra : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
-            dina :  IN STD_LOGIC_VECTOR(8 DOWNTO 0);
+            dina :  IN STD_LOGIC_VECTOR(11 DOWNTO 0);
             clkb :  IN STD_LOGIC;
             addrb : IN STD_LOGIC_VECTOR(19 DOWNTO 0);
-            doutb : OUT STD_LOGIC_VECTOR(8 DOWNTO 0));
+            doutb : OUT STD_LOGIC_VECTOR(11 DOWNTO 0));
     end component blk_mem_iter;
         
     component mandelbrot_calculator_Z is
@@ -220,7 +220,7 @@ architecture rtl of mse_mandelbrot_Z is
     signal s_addr :           std_logic_vector(19 downto 0);
     signal s_data_valid :     std_logic;
     signal s_addr_out :       std_logic_vector(19 downto 0);
-    signal s_data_out :       std_logic_vector(8 downto 0);
+    signal s_data_out :       std_logic_vector(11 downto 0);
 
     -- Debug signals
 
@@ -313,7 +313,7 @@ begin  -- architecture rtl
             clka    => ClkSys100MhzxC,
             wea(0)  => s_data_valid,
             addra   => s_addr,
-            dina    => s_iterations_bus(8 downto 0),
+            dina    => s_iterations_bus(11 downto 0),
             clkb    => ClkVgaxC,
             addrb   => s_addr_out,
             doutb   => s_data_out);
@@ -392,8 +392,8 @@ begin  -- architecture rtl
             
     s_addr_out  <=  VCountxD(9 downto 0) & HCountxD(9 downto 0);
             
-    DataxD      <=  s_data_out(8 downto 1) &
-                    s_data_out(8 downto 1) &
-                    s_data_out(8 downto 1);
+    DataxD      <=  s_data_out(7 downto 0) &
+                    s_data_out(10 downto 3) &
+                    s_data_out(7 downto 0);
 
 end architecture rtl;

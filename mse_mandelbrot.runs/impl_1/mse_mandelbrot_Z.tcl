@@ -196,6 +196,7 @@ set rc [catch {
   add_files -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/mse_mandelbrot_Z.dcp
   read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_mandelbrot/clk_mandelbrot.xci
   read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/bram_video_memory_d786432_w9_rdclk1_wrclk1/bram_video_memory_d786432_w9_rdclk1_wrclk1.xci
+  read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter.xci
   read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_640x480/clk_vga_hdmi_640x480.xci
   read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_800x600/clk_vga_hdmi_800x600.xci
   read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_1024x600/clk_vga_1024x600.xci
@@ -204,7 +205,6 @@ set rc [catch {
   read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_640x480/clk_vga_640x480.xci
   read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_hdmi_640x480/clk_hdmi_640x480.xci
   read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.xci
-  read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter.xci
   read_xdc /home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc
   link_design -top mse_mandelbrot_Z -part xc7a200tsbg484-1
   close_msg_db -file init_design.pb

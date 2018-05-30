@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Mon May 28 23:07:16 2018
-# Process ID: 17285
+# Start of session at: Wed May 30 14:19:34 2018
+# Process ID: 30068
 # Current directory: /home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1
 # Command line: vivado -log mse_mandelbrot_Z.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source mse_mandelbrot_Z.tcl
 # Log file: /home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/mse_mandelbrot_Z.vds
@@ -15,32 +15,32 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 17302 
+INFO: Helper process launched with PID 30076 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1257.027 ; gain = 81.961 ; free physical = 3792 ; free virtual = 5613
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1257.031 ; gain = 81.961 ; free physical = 2672 ; free virtual = 4465
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'mse_mandelbrot_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:59]
 	Parameter C_CHANNEL_NUMBER bound to: 4 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'hdmi' [/home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd:62]
 	Parameter C_CHANNEL_NUMBER bound to: 4 - type: integer 
-	Parameter C_DATA_SIZE bound to: 18 - type: integer 
+	Parameter C_DATA_SIZE bound to: 20 - type: integer 
 	Parameter C_PIXEL_SIZE bound to: 8 - type: integer 
 	Parameter C_VGA_CONFIG bound to: 192'b000001000000000000000010010110000000000010100000000000001000110000000000000011000000000000010100000000000001010000000000000000110000010101000000000000100111101100000000000000000000000000000000 
 	Parameter C_RESOLUTION bound to: 1024x600 - type: string 
 INFO: [Synth 8-113] binding component instance 'BUFGClkSysToClkVgaHdmixI' to cell 'BUFG' [/home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd:363]
-INFO: [Synth 8-3491] module 'clk_vga_hdmi_1024x600' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-17285-quartus/realtime/clk_vga_hdmi_1024x600_stub.vhdl:5' bound to instance 'ClkVgaHdmi1024x600xI' of component 'clk_vga_hdmi_1024x600' [/home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd:380]
-INFO: [Synth 8-638] synthesizing module 'clk_vga_hdmi_1024x600' [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-17285-quartus/realtime/clk_vga_hdmi_1024x600_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'clk_vga_hdmi_1024x600' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-30068-quartus/realtime/clk_vga_hdmi_1024x600_stub.vhdl:5' bound to instance 'ClkVgaHdmi1024x600xI' of component 'clk_vga_hdmi_1024x600' [/home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd:380]
+INFO: [Synth 8-638] synthesizing module 'clk_vga_hdmi_1024x600' [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-30068-quartus/realtime/clk_vga_hdmi_1024x600_stub.vhdl:16]
 INFO: [Synth 8-638] synthesizing module 'vga' [/home/quartus/workspace/LPSC/ip/hdl/src/vga.vhd:47]
-	Parameter C_DATA_SIZE bound to: 18 - type: integer 
+	Parameter C_DATA_SIZE bound to: 20 - type: integer 
 	Parameter C_PIXEL_SIZE bound to: 8 - type: integer 
 	Parameter C_VGA_CONFIG bound to: 192'b000001000000000000000010010110000000000010100000000000001000110000000000000011000000000000010100000000000001010000000000000000110000010101000000000000100111101100000000000000000000000000000000 
 INFO: [Synth 8-638] synthesizing module 'vga_stripes' [/home/quartus/workspace/LPSC/ip/hdl/src/vga_stripes.vhd:46]
-	Parameter C_DATA_SIZE bound to: 18 - type: integer 
+	Parameter C_DATA_SIZE bound to: 20 - type: integer 
 	Parameter C_PIXEL_SIZE bound to: 8 - type: integer 
 	Parameter C_VGA_CONFIG bound to: 192'b000001000000000000000010010110000000000010100000000000001000110000000000000011000000000000010100000000000001010000000000000000110000010101000000000000100111101100000000000000000000000000000000 
 INFO: [Synth 8-256] done synthesizing module 'vga_stripes' (1#1) [/home/quartus/workspace/LPSC/ip/hdl/src/vga_stripes.vhd:46]
 INFO: [Synth 8-638] synthesizing module 'vga_controler' [/home/quartus/workspace/LPSC/ip/hdl/src/vga_controler.vhd:45]
-	Parameter C_DATA_SIZE bound to: 18 - type: integer 
+	Parameter C_DATA_SIZE bound to: 20 - type: integer 
 	Parameter C_VGA_CONFIG bound to: 192'b000001000000000000000010010110000000000010100000000000001000110000000000000011000000000000010100000000000001010000000000000000110000010101000000000000100111101100000000000000000000000000000000 
 INFO: [Synth 8-256] done synthesizing module 'vga_controler' (2#1) [/home/quartus/workspace/LPSC/ip/hdl/src/vga_controler.vhd:45]
 INFO: [Synth 8-256] done synthesizing module 'vga' (3#1) [/home/quartus/workspace/LPSC/ip/hdl/src/vga.vhd:47]
@@ -124,63 +124,101 @@ INFO: [Synth 8-113] binding component instance 'OBUFDSHdmiTxCh2xI' to cell 'OBUF
 INFO: [Synth 8-113] binding component instance 'OBUFDSHdmiTxClkxI' to cell 'OBUFDS' [/home/quartus/workspace/LPSC/ip/hdl/src/vga_to_hdmi.vhd:234]
 INFO: [Synth 8-256] done synthesizing module 'vga_to_hdmi' (6#1) [/home/quartus/workspace/LPSC/ip/hdl/src/vga_to_hdmi.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'hdmi' (7#1) [/home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd:62]
-INFO: [Synth 8-3491] module 'blk_mem_iter' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-17285-quartus/realtime/blk_mem_iter_stub.vhdl:5' bound to instance 'Bram_iteration' of component 'blk_mem_iter' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:311]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_iter' [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-17285-quartus/realtime/blk_mem_iter_stub.vhdl:18]
-	Parameter point_pos bound to: 12 - type: integer 
-	Parameter max_iter bound to: 2047 - type: integer 
-	Parameter SIZE bound to: 18 - type: integer 
+INFO: [Synth 8-3491] module 'blk_mem_iter' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-30068-quartus/realtime/blk_mem_iter_stub.vhdl:5' bound to instance 'Bram_iteration' of component 'blk_mem_iter' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:311]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_iter' [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-30068-quartus/realtime/blk_mem_iter_stub.vhdl:18]
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
 INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
 INFO: [Synth 8-638] synthesizing module 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:52]
-	Parameter point_pos bound to: 12 - type: integer 
-	Parameter max_iter bound to: 2047 - type: integer 
-	Parameter SIZE bound to: 18 - type: integer 
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'generic_counter' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:45]
-	Parameter SIZE bound to: 18 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'generic_counter' (8#1) [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:45]
 INFO: [Synth 8-638] synthesizing module 'generic_register' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:46]
-	Parameter SIZE bound to: 18 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'generic_register' (9#1) [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'mandelbrot_calculator_Z' (10#1) [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:52]
-	Parameter point_pos bound to: 12 - type: integer 
-	Parameter max_iter bound to: 2047 - type: integer 
-	Parameter SIZE bound to: 18 - type: integer 
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
 INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
-	Parameter point_pos bound to: 12 - type: integer 
-	Parameter max_iter bound to: 2047 - type: integer 
-	Parameter SIZE bound to: 18 - type: integer 
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
 INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
-	Parameter point_pos bound to: 12 - type: integer 
-	Parameter max_iter bound to: 2047 - type: integer 
-	Parameter SIZE bound to: 18 - type: integer 
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
 INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
-	Parameter point_pos bound to: 12 - type: integer 
-	Parameter max_iter bound to: 2047 - type: integer 
-	Parameter SIZE bound to: 18 - type: integer 
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
 INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
-	Parameter point_pos bound to: 12 - type: integer 
-	Parameter max_iter bound to: 2047 - type: integer 
-	Parameter SIZE bound to: 18 - type: integer 
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
 INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
-	Parameter point_pos bound to: 12 - type: integer 
-	Parameter max_iter bound to: 2047 - type: integer 
-	Parameter SIZE bound to: 18 - type: integer 
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
 INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
-	Parameter point_pos bound to: 12 - type: integer 
-	Parameter max_iter bound to: 2047 - type: integer 
-	Parameter SIZE bound to: 18 - type: integer 
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
+INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter max_iter bound to: 100 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
 INFO: [Synth 8-3491] module 'mandelbrot_calculator_Z' declared at '/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:34' bound to instance 'MandelbrotCalculatorX' of component 'mandelbrot_calculator_Z' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:326]
 INFO: [Synth 8-638] synthesizing module 'CalculatorsDispatcherZ' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/CalculatorsDispatcherZ.vhd:57]
-	Parameter SIZE bound to: 18 - type: integer 
-	Parameter NB_CALC bound to: 8 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
+	Parameter NB_CALC bound to: 16 - type: integer 
+WARNING: [Synth 8-4767] Trying to implement RAM 'addr_table_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: RAM has too many ports (16). Maximum supported = 16. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM "addr_table_reg" dissolved into registers
 INFO: [Synth 8-256] done synthesizing module 'CalculatorsDispatcherZ' (11#1) [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/CalculatorsDispatcherZ.vhd:57]
 INFO: [Synth 8-638] synthesizing module 'ConstantsGenerator_Zoom' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/ConstantsGenerator_Zoom.vhd:54]
-	Parameter point_pos bound to: 12 - type: integer 
-	Parameter SIZE bound to: 18 - type: integer 
+	Parameter point_pos bound to: 14 - type: integer 
+	Parameter SIZE bound to: 20 - type: integer 
 WARNING: [Synth 8-5825] expecting unsigned expression [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/ConstantsGenerator_Zoom.vhd:73]
 INFO: [Synth 8-256] done synthesizing module 'ConstantsGenerator_Zoom' (12#1) [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/ConstantsGenerator_Zoom.vhd:54]
 INFO: [Synth 8-256] done synthesizing module 'mse_mandelbrot_Z' (13#1) [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mse_mandelbrot_Z.vhd:59]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1304.559 ; gain = 129.492 ; free physical = 3799 ; free virtual = 5620
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1309.562 ; gain = 134.492 ; free physical = 2673 ; free virtual = 4467
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -190,7 +228,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1304.559 ; gain = 129.492 ; free physical = 3800 ; free virtual = 5621
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1309.562 ; gain = 134.492 ; free physical = 2677 ; free virtual = 4471
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -199,10 +237,10 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-17285-quartus/dcp20/clk_vga_hdmi_1024x600_in_context.xdc] for cell 'HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI'
-Finished Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-17285-quartus/dcp20/clk_vga_hdmi_1024x600_in_context.xdc] for cell 'HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI'
-Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-17285-quartus/dcp21/blk_mem_iter_in_context.xdc] for cell 'Bram_iteration'
-Finished Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-17285-quartus/dcp21/blk_mem_iter_in_context.xdc] for cell 'Bram_iteration'
+Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-30068-quartus/dcp13/blk_mem_iter_in_context.xdc] for cell 'Bram_iteration'
+Finished Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-30068-quartus/dcp13/blk_mem_iter_in_context.xdc] for cell 'Bram_iteration'
+Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-30068-quartus/dcp21/clk_vga_hdmi_1024x600_in_context.xdc] for cell 'HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI'
+Finished Parsing XDC File [/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/.Xil/Vivado-30068-quartus/dcp21/clk_vga_hdmi_1024x600_in_context.xdc] for cell 'HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI'
 Parsing XDC File [/home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc]
 Finished Parsing XDC File [/home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/quartus/workspace/LPSC/constr/Nexys-Video-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/mse_mandelbrot_Z_propImpl.xdc].
@@ -214,17 +252,17 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1714.426 ; gain = 0.000 ; free physical = 3499 ; free virtual = 5320
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1722.414 ; gain = 0.000 ; free physical = 2368 ; free virtual = 4162
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'Bram_iteration' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1714.426 ; gain = 539.359 ; free physical = 3584 ; free virtual = 5406
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1722.414 ; gain = 547.344 ; free physical = 2458 ; free virtual = 4252
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1714.426 ; gain = 539.359 ; free physical = 3584 ; free virtual = 5406
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1722.414 ; gain = 547.344 ; free physical = 2458 ; free virtual = 4252
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -232,7 +270,7 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for Bram_iteration. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for HdmixI/\ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 1714.426 ; gain = 539.359 ; free physical = 3584 ; free virtual = 5405
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 1722.414 ; gain = 547.344 ; free physical = 2459 ; free virtual = 4254
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "VCountxD" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "VgaSyncxS[HSyncxS]" won't be mapped to RAM because it is too sparse
@@ -245,8 +283,11 @@ INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To p
 WARNING: [Synth 8-6014] Unused sequential element s_x_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/ConstantsGenerator_Zoom.vhd:138]
 WARNING: [Synth 8-6014] Unused sequential element s_y_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/ConstantsGenerator_Zoom.vhd:139]
 WARNING: [Synth 8-6014] Unused sequential element counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:62]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:62]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:62]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:37 . Memory (MB): peak = 1714.426 ; gain = 539.359 ; free physical = 3576 ; free virtual = 5398
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:39 . Memory (MB): peak = 1722.414 ; gain = 547.344 ; free physical = 2452 ; free virtual = 4247
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -259,9 +300,9 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     18 Bit       Adders := 34    
-	   3 Input     18 Bit       Adders := 4     
-	   4 Input     18 Bit       Adders := 8     
+	   2 Input     20 Bit       Adders := 50    
+	   3 Input     20 Bit       Adders := 4     
+	   4 Input     20 Bit       Adders := 16    
 	   2 Input     10 Bit       Adders := 2     
 	   8 Input      4 Bit       Adders := 3     
 	   9 Input      4 Bit       Adders := 3     
@@ -271,33 +312,30 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input      1 Bit         XORs := 42    
 +---Registers : 
-	               20 Bit    Registers := 1     
-	               18 Bit    Registers := 48    
+	               20 Bit    Registers := 105   
+	               16 Bit    Registers := 2     
 	               10 Bit    Registers := 5     
-	                8 Bit    Registers := 2     
-	                4 Bit    Registers := 3     
-	                3 Bit    Registers := 6     
-	                2 Bit    Registers := 11    
-	                1 Bit    Registers := 39    
-+---RAMs : 
-	              160 Bit         RAMs := 1     
+	                4 Bit    Registers := 5     
+	                3 Bit    Registers := 5     
+	                2 Bit    Registers := 19    
+	                1 Bit    Registers := 71    
 +---Muxes : 
-	   2 Input     20 Bit        Muxes := 14    
-	   2 Input     18 Bit        Muxes := 22    
-	   2 Input     13 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 2     
+	   2 Input     20 Bit        Muxes := 60    
+	   2 Input     16 Bit        Muxes := 5     
+	   4 Input     16 Bit        Muxes := 3     
+	   2 Input     15 Bit        Muxes := 1     
 	   5 Input     10 Bit        Muxes := 6     
 	   4 Input     10 Bit        Muxes := 3     
 	   2 Input     10 Bit        Muxes := 9     
 	   2 Input      9 Bit        Muxes := 6     
-	   2 Input      8 Bit        Muxes := 8     
-	   4 Input      8 Bit        Muxes := 3     
-	   2 Input      4 Bit        Muxes := 12    
-	   2 Input      3 Bit        Muxes := 24    
-	   4 Input      2 Bit        Muxes := 10    
-	   2 Input      2 Bit        Muxes := 16    
-	   2 Input      1 Bit        Muxes := 164   
+	   2 Input      8 Bit        Muxes := 3     
+	   2 Input      4 Bit        Muxes := 68    
+	   4 Input      2 Bit        Muxes := 18    
+	   2 Input      2 Bit        Muxes := 32    
+	   2 Input      1 Bit        Muxes := 364   
 	   3 Input      1 Bit        Muxes := 2     
-	   4 Input      1 Bit        Muxes := 80    
+	   4 Input      1 Bit        Muxes := 152   
 	   6 Input      1 Bit        Muxes := 2     
 	   7 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
@@ -307,20 +345,24 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module mse_mandelbrot_Z 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     24 Bit        Muxes := 2     
 Module vga_stripes 
 Detailed RTL Component Info : 
 +---Muxes : 
-	   2 Input     18 Bit        Muxes := 2     
+	   2 Input     20 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 3     
 Module vga_controler 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     18 Bit       Adders := 2     
+	   2 Input     20 Bit       Adders := 2     
 +---Registers : 
-	               18 Bit    Registers := 2     
+	               20 Bit    Registers := 2     
 	                1 Bit    Registers := 3     
 +---Muxes : 
-	   2 Input     18 Bit        Muxes := 2     
+	   2 Input     20 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 8     
 	   3 Input      1 Bit        Muxes := 2     
 Module tmds_encoder 
@@ -344,37 +386,35 @@ Detailed RTL Component Info :
 Module CalculatorsDispatcherZ 
 Detailed RTL Component Info : 
 +---Registers : 
-	               20 Bit    Registers := 1     
-	                8 Bit    Registers := 2     
-	                3 Bit    Registers := 1     
+	               20 Bit    Registers := 17    
+	               16 Bit    Registers := 2     
+	                4 Bit    Registers := 2     
 	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 2     
-+---RAMs : 
-	              160 Bit         RAMs := 1     
 +---Muxes : 
-	   2 Input     20 Bit        Muxes := 14    
-	   2 Input      8 Bit        Muxes := 5     
-	   4 Input      8 Bit        Muxes := 3     
-	   2 Input      3 Bit        Muxes := 24    
+	   2 Input     20 Bit        Muxes := 30    
+	   2 Input     16 Bit        Muxes := 5     
+	   4 Input     16 Bit        Muxes := 3     
+	   2 Input      4 Bit        Muxes := 56    
 	   4 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 115   
+	   2 Input      1 Bit        Muxes := 275   
 	   4 Input      1 Bit        Muxes := 8     
 Module ConstantsGenerator_Zoom 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     18 Bit       Adders := 16    
-	   3 Input     18 Bit       Adders := 4     
+	   2 Input     20 Bit       Adders := 16    
+	   3 Input     20 Bit       Adders := 4     
 	   2 Input     10 Bit       Adders := 2     
 	   2 Input      2 Bit       Adders := 1     
 +---Registers : 
-	               18 Bit    Registers := 6     
+	               20 Bit    Registers := 6     
 	               10 Bit    Registers := 2     
 	                3 Bit    Registers := 5     
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input     18 Bit        Muxes := 10    
-	   2 Input     13 Bit        Muxes := 1     
+	   2 Input     20 Bit        Muxes := 10    
+	   2 Input     15 Bit        Muxes := 1     
 	   6 Input      1 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 1     
 	   7 Input      1 Bit        Muxes := 1     
@@ -385,20 +425,20 @@ Detailed RTL Component Info :
 Module generic_register 
 Detailed RTL Component Info : 
 +---Registers : 
-	               18 Bit    Registers := 1     
+	               20 Bit    Registers := 1     
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 1     
 Module mandelbrot_calculator_Z 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     18 Bit       Adders := 2     
-	   4 Input     18 Bit       Adders := 1     
+	   2 Input     20 Bit       Adders := 2     
+	   4 Input     20 Bit       Adders := 1     
 +---Registers : 
-	               18 Bit    Registers := 3     
+	               20 Bit    Registers := 3     
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 4     
 +---Muxes : 
-	   2 Input     18 Bit        Muxes := 1     
+	   2 Input     20 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 2     
 	   4 Input      1 Bit        Muxes := 9     
@@ -418,171 +458,398 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/z_real_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:214]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/z_imaginary_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:215]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/z_real_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:214]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/z_imaginary_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:215]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/z_real_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:214]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/z_imaginary_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:215]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/z_real_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:214]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/z_imaginary_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:215]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/z_real_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:214]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/z_imaginary_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:215]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/z_real_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:214]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/z_imaginary_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:215]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/z_real_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:214]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/z_imaginary_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:215]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/z_real_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:214]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/z_imaginary_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/mandelbrot_calculator_Z.vhd:215]
 INFO: [Synth 8-5546] ROM "VgaxI/VgaControlerxI/VgaSyncxS[HSyncxS]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "VgaxI/VgaControlerxI/VCountxD" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "VgaxI/VgaControlerxI/VgaSyncxS[VSyncxS]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5544] ROM "ack_calc" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 WARNING: [Synth 8-6014] Unused sequential element s_x_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/ConstantsGenerator_Zoom.vhd:138]
 WARNING: [Synth 8-6014] Unused sequential element s_y_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/ConstantsGenerator_Zoom.vhd:139]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
-WARNING: [Synth 8-6014] Unused sequential element GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
-DSP Report: Generating DSP GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/RealRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0.
-DSP Report: Generating DSP GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0, operation Mode is: A2*B2.
-DSP Report: register GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0.
-DSP Report: register GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/ImaginaryRegister/data_out_reg is absorbed into DSP GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0.
-DSP Report: operator GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0 is absorbed into DSP GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/mult0.
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element ImaginaryRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element B was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element  was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element IterationCounter/counter_up_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_counter.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+WARNING: [Synth 8-6014] Unused sequential element RealRegister/data_out_reg was removed.  [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Common 17-14] Message 'Synth 8-6014' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+INFO: [Synth 8-4471] merging register 'RealRegister/data_out_reg[19:0]' into 'RealRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+INFO: [Synth 8-4471] merging register 'ImaginaryRegister/data_out_reg[19:0]' into 'ImaginaryRegister/data_out_reg[19:0]' [/home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/new/generic_register.vhd:55]
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register RealRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: Generating DSP mult0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mult0.
+DSP Report: register ImaginaryRegister/data_out_reg is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
+DSP Report: operator mult0 is absorbed into DSP mult0.
 WARNING: [Synth 8-3331] design hdmi has unconnected port HdmiTxHpdxSI
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[14]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[15]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[16]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[17]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[0]' (FDRE) to 'ConstantsGenerator/zoomExp_reg[1]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[2]' (FDSE) to 'ConstantsGenerator/delta_c_imag_reg[2]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[4]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[5]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[6]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[7]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[8]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[9]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[10]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[11]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[12]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[13]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[14]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[15]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[16]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[17]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[4]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[4]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[5]'
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[5]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[6]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[16]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[6]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[17]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[6]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[18]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[6]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[19]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[6]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[4]' (FDSE) to 'ConstantsGenerator/delta_c_real_reg[4]'
 INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[6]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[7]'
 INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[7]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[8]'
 INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[8]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[9]'
@@ -590,124 +857,179 @@ INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[9]' (
 INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[10]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[11]'
 INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[11]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[12]'
 INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[12]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[13]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (ConstantsGenerator/\delta_c_imag_reg[13] )
-WARNING: [Synth 8-3332] Sequential element (delta_c_imag_reg[13]) is unused and will be removed from module ConstantsGenerator_Zoom.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/s_iterations_reg[17]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/s_iterations_reg[16]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/s_iterations_reg[15]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/s_iterations_reg[14]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/s_iterations_reg[13]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/s_iterations_reg[12]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/s_iterations_reg[17]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/s_iterations_reg[16]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/s_iterations_reg[15]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/s_iterations_reg[14]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/s_iterations_reg[13]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/s_iterations_reg[12]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/s_iterations_reg[17]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/s_iterations_reg[16]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/s_iterations_reg[15]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/s_iterations_reg[14]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/s_iterations_reg[13]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/s_iterations_reg[12]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/s_iterations_reg[17]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/s_iterations_reg[16]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/s_iterations_reg[15]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/s_iterations_reg[14]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/s_iterations_reg[13]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/s_iterations_reg[12]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/s_iterations_reg[17]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/s_iterations_reg[16]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/s_iterations_reg[15]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/s_iterations_reg[14]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/s_iterations_reg[13]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/s_iterations_reg[12]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/s_iterations_reg[17]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/s_iterations_reg[16]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/s_iterations_reg[15]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/s_iterations_reg[14]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/s_iterations_reg[13]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/s_iterations_reg[12]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/s_iterations_reg[17]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/s_iterations_reg[16]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/s_iterations_reg[15]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/s_iterations_reg[14]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/s_iterations_reg[13]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/s_iterations_reg[12]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/s_iterations_reg[17]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/s_iterations_reg[16]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/s_iterations_reg[15]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/s_iterations_reg[14]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/s_iterations_reg[13]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/s_iterations_reg[12]) is unused and will be removed from module mse_mandelbrot_Z.
-INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[3]' (FDSE) to 'ConstantsGenerator/delta_c_imag_reg[3]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[13]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[14]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[14]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[15]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_imag_reg[15]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[19]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[16]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[19]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[17]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[19]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[18]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[19]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[19]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[15]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[0]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[15]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[2]' (FDRE) to 'ConstantsGenerator/zoomExp_reg[1]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[6]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[15]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[7]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[15]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[8]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[15]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[9]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[15]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[10]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[15]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[11]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[15]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[12]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[15]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[13]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[15]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[14]' (FDRE) to 'ConstantsGenerator/delta_c_real_reg[15]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ConstantsGenerator/\delta_c_real_reg[15] )
+WARNING: [Synth 8-3332] Sequential element (delta_c_real_reg[15]) is unused and will be removed from module ConstantsGenerator_Zoom.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[19]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[18]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[17]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[16]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[15]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[14]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[13]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[12]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[11]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[10]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[9]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[8]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[6]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[5]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[4]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[3]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[2]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[1]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_real_reg[0]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[19]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[18]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[17]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[16]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[15]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[14]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[13]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[12]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[11]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[10]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[9]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[8]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[6]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[5]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[4]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[3]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[2]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[1]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (z_imaginary_reg[0]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[19]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[18]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[17]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[16]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[15]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[14]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[13]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[12]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[11]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[10]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[9]) is unused and will be removed from module mandelbrot_calculator_Z.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[8]) is unused and will be removed from module mandelbrot_calculator_Z.
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[3]' (FDRE) to 'ConstantsGenerator/delta_c_imag_reg[3]'
+INFO: [Synth 8-3886] merging instance 'ConstantsGenerator/delta_c_real_reg[5]' (FDSE) to 'ConstantsGenerator/delta_c_imag_reg[5]'
 WARNING: [Synth 8-3332] Sequential element (real_shift_reg[2]) is unused and will be removed from module ConstantsGenerator_Zoom.
 WARNING: [Synth 8-3332] Sequential element (real_shift_reg[1]) is unused and will be removed from module ConstantsGenerator_Zoom.
 WARNING: [Synth 8-3332] Sequential element (real_shift_reg[0]) is unused and will be removed from module ConstantsGenerator_Zoom.
+WARNING: [Synth 8-3332] Sequential element (s_c_real_reg[0]) is unused and will be removed from module ConstantsGenerator_Zoom.
 WARNING: [Synth 8-3332] Sequential element (imag_shift_reg[2]) is unused and will be removed from module ConstantsGenerator_Zoom.
 WARNING: [Synth 8-3332] Sequential element (imag_shift_reg[1]) is unused and will be removed from module ConstantsGenerator_Zoom.
 WARNING: [Synth 8-3332] Sequential element (imag_shift_reg[0]) is unused and will be removed from module ConstantsGenerator_Zoom.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/s_iterations_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/s_iterations_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/s_iterations_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/s_iterations_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/s_iterations_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/s_iterations_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/s_iterations_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/s_iterations_reg[11] )
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[0].MandelbrotCalculatorX/s_iterations_reg[11]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[1].MandelbrotCalculatorX/s_iterations_reg[11]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[2].MandelbrotCalculatorX/s_iterations_reg[11]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[3].MandelbrotCalculatorX/s_iterations_reg[11]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[4].MandelbrotCalculatorX/s_iterations_reg[11]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[5].MandelbrotCalculatorX/s_iterations_reg[11]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[6].MandelbrotCalculatorX/s_iterations_reg[11]) is unused and will be removed from module mse_mandelbrot_Z.
-WARNING: [Synth 8-3332] Sequential element (GEN_MandelbrotCalculator[7].MandelbrotCalculatorX/s_iterations_reg[11]) is unused and will be removed from module mse_mandelbrot_Z.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[15].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[14].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[13].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[12].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[11].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[10].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[9].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[8].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[7].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[6].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[5].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[4].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[3].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[2].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[1].MandelbrotCalculatorX /\s_iterations_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GEN_MandelbrotCalculator[0].MandelbrotCalculatorX /\s_iterations_reg[7] )
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__1.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__2.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__3.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__4.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__5.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__6.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__7.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__8.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__9.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__10.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__11.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__12.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__13.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__14.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z__15.
+WARNING: [Synth 8-3332] Sequential element (s_iterations_reg[7]) is unused and will be removed from module mandelbrot_calculator_Z.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:45 . Memory (MB): peak = 1714.426 ; gain = 539.359 ; free physical = 3524 ; free virtual = 5345
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:56 . Memory (MB): peak = 1722.414 ; gain = 547.344 ; free physical = 2388 ; free virtual = 4183
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
-Distributed RAM: Preliminary Mapping  Report (see note below)
-+----------------------+----------------+-----------+----------------------+---------------+
-|Module Name           | RTL Object     | Inference | Size (Depth x Width) | Primitives    | 
-+----------------------+----------------+-----------+----------------------+---------------+
-|CalculatorsDispatcher | addr_table_reg | Implied   | 8 x 20               | RAM32M x 32   | 
-+----------------------+----------------+-----------+----------------------+---------------+
-
-Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
-
 DSP: Preliminary Mapping  Report (see note below)
-+-----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name      | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+-----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-|mse_mandelbrot_Z | A2*B2       | 18     | 18     | -      | -      | 36     | 1    | 1    | -    | -    | -     | 0    | 0    | 
-+-----------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name             | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 33     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|mandelbrot_calculator_Z | A2*B2       | 20     | 18     | -      | -      | 34     | 1    | 1    | -    | -    | -     | 0    | 0    | 
++------------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
@@ -729,27 +1051,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'HdmixI/ClkVgaHdmi1024x600
 INFO: [Synth 8-5783] Moving clock source from hierarchical pin 'HdmixI/ClkVgaHdmi1024x600xG.ClkVgaHdmi1024x600xI/ClkSys100MhzxC' to 'HdmixI/ClkVgaHdmi1024x600xG.BUFGClkSysToClkVgaHdmixI/O'
 INFO: [Synth 8-5819] Moved 3 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:55 . Memory (MB): peak = 1714.426 ; gain = 539.359 ; free physical = 3371 ; free virtual = 5192
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:52 ; elapsed = 00:01:06 . Memory (MB): peak = 1725.398 ; gain = 550.328 ; free physical = 2237 ; free virtual = 4032
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:58 . Memory (MB): peak = 1766.449 ; gain = 591.383 ; free physical = 3347 ; free virtual = 5168
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Distributed RAM: Final Mapping  Report
-+----------------------+----------------+-----------+----------------------+---------------+
-|Module Name           | RTL Object     | Inference | Size (Depth x Width) | Primitives    | 
-+----------------------+----------------+-----------+----------------------+---------------+
-|CalculatorsDispatcher | addr_table_reg | Implied   | 8 x 20               | RAM32M x 32   | 
-+----------------------+----------------+-----------+----------------------+---------------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Timing Optimization : Time (s): cpu = 00:00:54 ; elapsed = 00:01:09 . Memory (MB): peak = 1764.430 ; gain = 589.359 ; free physical = 2214 ; free virtual = 4009
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -761,7 +1069,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:00:59 . Memory (MB): peak = 1774.457 ; gain = 599.391 ; free physical = 3341 ; free virtual = 5163
+Finished Technology Mapping : Time (s): cpu = 00:00:58 ; elapsed = 00:01:13 . Memory (MB): peak = 1823.102 ; gain = 648.031 ; free physical = 2201 ; free virtual = 3996
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -786,7 +1094,7 @@ Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-5410] Found another clock driver \HdmixI/ClkVgaHdmi1024x600xG.BUFGClkSysToClkVgaHdmixI :O [/home/quartus/workspace/LPSC/ip/hdl/src/hdmi.vhd:363]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:45 ; elapsed = 00:01:00 . Memory (MB): peak = 1774.457 ; gain = 599.391 ; free physical = 3343 ; free virtual = 5164
+Finished IO Insertion : Time (s): cpu = 00:00:59 ; elapsed = 00:01:14 . Memory (MB): peak = 1823.102 ; gain = 648.031 ; free physical = 2200 ; free virtual = 3995
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -799,7 +1107,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:45 ; elapsed = 00:01:00 . Memory (MB): peak = 1774.457 ; gain = 599.391 ; free physical = 3343 ; free virtual = 5164
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:59 ; elapsed = 00:01:14 . Memory (MB): peak = 1823.102 ; gain = 648.031 ; free physical = 2200 ; free virtual = 3995
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -811,25 +1119,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:46 ; elapsed = 00:01:00 . Memory (MB): peak = 1774.457 ; gain = 599.391 ; free physical = 3343 ; free virtual = 5164
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:01 ; elapsed = 00:01:16 . Memory (MB): peak = 1823.102 ; gain = 648.031 ; free physical = 2199 ; free virtual = 3994
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:46 ; elapsed = 00:01:00 . Memory (MB): peak = 1774.457 ; gain = 599.391 ; free physical = 3343 ; free virtual = 5164
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:01 ; elapsed = 00:01:16 . Memory (MB): peak = 1823.102 ; gain = 648.031 ; free physical = 2199 ; free virtual = 3994
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:46 ; elapsed = 00:01:00 . Memory (MB): peak = 1774.457 ; gain = 599.391 ; free physical = 3343 ; free virtual = 5164
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:01 ; elapsed = 00:01:16 . Memory (MB): peak = 1823.102 ; gain = 648.031 ; free physical = 2199 ; free virtual = 3994
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:46 ; elapsed = 00:01:00 . Memory (MB): peak = 1774.457 ; gain = 599.391 ; free physical = 3343 ; free virtual = 5164
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:01 ; elapsed = 00:01:16 . Memory (MB): peak = 1823.102 ; gain = 648.031 ; free physical = 2199 ; free virtual = 3994
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -850,81 +1158,127 @@ Report Cell Usage:
 |1     |blk_mem_iter_bbox_1          |     1|
 |2     |clk_vga_hdmi_1024x600_bbox_0 |     1|
 |3     |BUFG                         |     2|
-|4     |CARRY4                       |   237|
-|5     |DSP48E1                      |    24|
-|6     |LUT1                         |    61|
-|7     |LUT2                         |   468|
-|8     |LUT3                         |   221|
-|9     |LUT4                         |   340|
-|10    |LUT5                         |   146|
-|11    |LUT6                         |   405|
-|12    |MUXF7                        |    15|
+|4     |CARRY4                       |   847|
+|5     |DSP48E1                      |    48|
+|6     |LUT1                         |    89|
+|7     |LUT2                         |  2381|
+|8     |LUT3                         |   405|
+|9     |LUT4                         |   443|
+|10    |LUT5                         |   291|
+|11    |LUT6                         |  2146|
+|12    |MUXF7                        |    16|
 |13    |OSERDESE2                    |     4|
 |14    |OSERDESE2_1                  |     4|
-|15    |RAM32M                       |    32|
-|16    |FDCE                         |    67|
-|17    |FDRE                         |   439|
-|18    |FDSE                         |    13|
-|19    |IBUF                         |     7|
-|20    |OBUF                         |     1|
-|21    |OBUFDS                       |     4|
+|15    |FDCE                         |    95|
+|16    |FDRE                         |  1647|
+|17    |FDSE                         |    16|
+|18    |IBUF                         |     7|
+|19    |OBUF                         |     1|
+|20    |OBUFDS                       |     4|
 +------+-----------------------------+------+
 
 Report Instance Areas: 
-+------+------------------------------------------------------+--------------------------+------+
-|      |Instance                                              |Module                    |Cells |
-+------+------------------------------------------------------+--------------------------+------+
-|1     |top                                                   |                          |  2505|
-|2     |  CalculatorsDispatcher                               |CalculatorsDispatcherZ    |   301|
-|3     |  ConstantsGenerator                                  |ConstantsGenerator_Zoom   |   702|
-|4     |  \GEN_MandelbrotCalculator[0].MandelbrotCalculatorX  |mandelbrot_calculator_Z   |   144|
-|5     |    IterationCounter                                  |generic_counter_18        |    27|
-|6     |  \GEN_MandelbrotCalculator[1].MandelbrotCalculatorX  |mandelbrot_calculator_Z_0 |   144|
-|7     |    IterationCounter                                  |generic_counter_17        |    27|
-|8     |  \GEN_MandelbrotCalculator[2].MandelbrotCalculatorX  |mandelbrot_calculator_Z_1 |   141|
-|9     |    IterationCounter                                  |generic_counter_16        |    27|
-|10    |  \GEN_MandelbrotCalculator[3].MandelbrotCalculatorX  |mandelbrot_calculator_Z_2 |   142|
-|11    |    IterationCounter                                  |generic_counter_15        |    27|
-|12    |  \GEN_MandelbrotCalculator[4].MandelbrotCalculatorX  |mandelbrot_calculator_Z_3 |   146|
-|13    |    IterationCounter                                  |generic_counter_14        |    27|
-|14    |  \GEN_MandelbrotCalculator[5].MandelbrotCalculatorX  |mandelbrot_calculator_Z_4 |   141|
-|15    |    IterationCounter                                  |generic_counter_13        |    27|
-|16    |  \GEN_MandelbrotCalculator[6].MandelbrotCalculatorX  |mandelbrot_calculator_Z_5 |   143|
-|17    |    IterationCounter                                  |generic_counter_12        |    27|
-|18    |  \GEN_MandelbrotCalculator[7].MandelbrotCalculatorX  |mandelbrot_calculator_Z_6 |   146|
-|19    |    IterationCounter                                  |generic_counter           |    27|
-|20    |  HdmixI                                              |hdmi                      |   334|
-|21    |    VgaToHdmixI                                       |vga_to_hdmi               |    62|
-|22    |      SerializerChannel0xI                            |serializer_10_to_1        |     2|
-|23    |      SerializerChannel1xI                            |serializer_10_to_1_7      |     2|
-|24    |      SerializerChannel2xI                            |serializer_10_to_1_8      |     2|
-|25    |      SerializerChannel3xI                            |serializer_10_to_1_9      |     2|
-|26    |      TmdsEncoderC0xI                                 |tmds_encoder              |    16|
-|27    |      TmdsEncoderC1xI                                 |tmds_encoder_10           |    17|
-|28    |      TmdsEncoderC2xI                                 |tmds_encoder_11           |    17|
-|29    |    VgaxI                                             |vga                       |   268|
-|30    |      VgaControlerxI                                  |vga_controler             |   268|
-+------+------------------------------------------------------+--------------------------+------+
++------+-------------------------------------------------------+---------------------------+------+
+|      |Instance                                               |Module                     |Cells |
++------+-------------------------------------------------------+---------------------------+------+
+|1     |top                                                    |                           |  8457|
+|2     |  CalculatorsDispatcher                                |CalculatorsDispatcherZ     |   714|
+|3     |  ConstantsGenerator                                   |ConstantsGenerator_Zoom    |  1320|
+|4     |  \GEN_MandelbrotCalculator[0].MandelbrotCalculatorX   |mandelbrot_calculator_Z    |   382|
+|5     |    ImaginaryRegister                                  |generic_register_63        |   107|
+|6     |    IterationCounter                                   |generic_counter_64         |    37|
+|7     |    RealRegister                                       |generic_register_65        |   158|
+|8     |  \GEN_MandelbrotCalculator[10].MandelbrotCalculatorX  |mandelbrot_calculator_Z_0  |   376|
+|9     |    ImaginaryRegister                                  |generic_register_60        |   107|
+|10    |    IterationCounter                                   |generic_counter_61         |    37|
+|11    |    RealRegister                                       |generic_register_62        |   158|
+|12    |  \GEN_MandelbrotCalculator[11].MandelbrotCalculatorX  |mandelbrot_calculator_Z_1  |   378|
+|13    |    ImaginaryRegister                                  |generic_register_57        |   107|
+|14    |    IterationCounter                                   |generic_counter_58         |    37|
+|15    |    RealRegister                                       |generic_register_59        |   158|
+|16    |  \GEN_MandelbrotCalculator[12].MandelbrotCalculatorX  |mandelbrot_calculator_Z_2  |   375|
+|17    |    ImaginaryRegister                                  |generic_register_54        |   107|
+|18    |    IterationCounter                                   |generic_counter_55         |    37|
+|19    |    RealRegister                                       |generic_register_56        |   158|
+|20    |  \GEN_MandelbrotCalculator[13].MandelbrotCalculatorX  |mandelbrot_calculator_Z_3  |   375|
+|21    |    ImaginaryRegister                                  |generic_register_51        |   107|
+|22    |    IterationCounter                                   |generic_counter_52         |    37|
+|23    |    RealRegister                                       |generic_register_53        |   158|
+|24    |  \GEN_MandelbrotCalculator[14].MandelbrotCalculatorX  |mandelbrot_calculator_Z_4  |   375|
+|25    |    ImaginaryRegister                                  |generic_register_48        |   107|
+|26    |    IterationCounter                                   |generic_counter_49         |    37|
+|27    |    RealRegister                                       |generic_register_50        |   158|
+|28    |  \GEN_MandelbrotCalculator[15].MandelbrotCalculatorX  |mandelbrot_calculator_Z_5  |   374|
+|29    |    ImaginaryRegister                                  |generic_register_45        |   107|
+|30    |    IterationCounter                                   |generic_counter_46         |    37|
+|31    |    RealRegister                                       |generic_register_47        |   158|
+|32    |  \GEN_MandelbrotCalculator[1].MandelbrotCalculatorX   |mandelbrot_calculator_Z_6  |   375|
+|33    |    ImaginaryRegister                                  |generic_register_42        |   107|
+|34    |    IterationCounter                                   |generic_counter_43         |    37|
+|35    |    RealRegister                                       |generic_register_44        |   158|
+|36    |  \GEN_MandelbrotCalculator[2].MandelbrotCalculatorX   |mandelbrot_calculator_Z_7  |   375|
+|37    |    ImaginaryRegister                                  |generic_register_39        |   107|
+|38    |    IterationCounter                                   |generic_counter_40         |    37|
+|39    |    RealRegister                                       |generic_register_41        |   158|
+|40    |  \GEN_MandelbrotCalculator[3].MandelbrotCalculatorX   |mandelbrot_calculator_Z_8  |   378|
+|41    |    ImaginaryRegister                                  |generic_register_36        |   107|
+|42    |    IterationCounter                                   |generic_counter_37         |    37|
+|43    |    RealRegister                                       |generic_register_38        |   158|
+|44    |  \GEN_MandelbrotCalculator[4].MandelbrotCalculatorX   |mandelbrot_calculator_Z_9  |   376|
+|45    |    ImaginaryRegister                                  |generic_register_33        |   107|
+|46    |    IterationCounter                                   |generic_counter_34         |    37|
+|47    |    RealRegister                                       |generic_register_35        |   158|
+|48    |  \GEN_MandelbrotCalculator[5].MandelbrotCalculatorX   |mandelbrot_calculator_Z_10 |   382|
+|49    |    ImaginaryRegister                                  |generic_register_30        |   107|
+|50    |    IterationCounter                                   |generic_counter_31         |    37|
+|51    |    RealRegister                                       |generic_register_32        |   158|
+|52    |  \GEN_MandelbrotCalculator[6].MandelbrotCalculatorX   |mandelbrot_calculator_Z_11 |   376|
+|53    |    ImaginaryRegister                                  |generic_register_27        |   107|
+|54    |    IterationCounter                                   |generic_counter_28         |    37|
+|55    |    RealRegister                                       |generic_register_29        |   158|
+|56    |  \GEN_MandelbrotCalculator[7].MandelbrotCalculatorX   |mandelbrot_calculator_Z_12 |   382|
+|57    |    ImaginaryRegister                                  |generic_register_24        |   107|
+|58    |    IterationCounter                                   |generic_counter_25         |    37|
+|59    |    RealRegister                                       |generic_register_26        |   158|
+|60    |  \GEN_MandelbrotCalculator[8].MandelbrotCalculatorX   |mandelbrot_calculator_Z_13 |   379|
+|61    |    ImaginaryRegister                                  |generic_register_21        |   107|
+|62    |    IterationCounter                                   |generic_counter_22         |    37|
+|63    |    RealRegister                                       |generic_register_23        |   158|
+|64    |  \GEN_MandelbrotCalculator[9].MandelbrotCalculatorX   |mandelbrot_calculator_Z_14 |   378|
+|65    |    ImaginaryRegister                                  |generic_register           |   107|
+|66    |    IterationCounter                                   |generic_counter            |    37|
+|67    |    RealRegister                                       |generic_register_20        |   158|
+|68    |  HdmixI                                               |hdmi                       |   370|
+|69    |    VgaToHdmixI                                        |vga_to_hdmi                |    88|
+|70    |      SerializerChannel0xI                             |serializer_10_to_1         |     2|
+|71    |      SerializerChannel1xI                             |serializer_10_to_1_15      |     2|
+|72    |      SerializerChannel2xI                             |serializer_10_to_1_16      |     2|
+|73    |      SerializerChannel3xI                             |serializer_10_to_1_17      |     2|
+|74    |      TmdsEncoderC0xI                                  |tmds_encoder               |    23|
+|75    |      TmdsEncoderC1xI                                  |tmds_encoder_18            |    33|
+|76    |      TmdsEncoderC2xI                                  |tmds_encoder_19            |    20|
+|77    |    VgaxI                                              |vga                        |   278|
+|78    |      VgaControlerxI                                   |vga_controler              |   278|
++------+-------------------------------------------------------+---------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:46 ; elapsed = 00:01:00 . Memory (MB): peak = 1774.457 ; gain = 599.391 ; free physical = 3343 ; free virtual = 5164
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:01 ; elapsed = 00:01:16 . Memory (MB): peak = 1823.102 ; gain = 648.031 ; free physical = 2199 ; free virtual = 3994
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 110 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:36 ; elapsed = 00:00:41 . Memory (MB): peak = 1774.457 ; gain = 189.523 ; free physical = 3408 ; free virtual = 5229
-Synthesis Optimization Complete : Time (s): cpu = 00:00:46 ; elapsed = 00:01:00 . Memory (MB): peak = 1774.465 ; gain = 599.391 ; free physical = 3412 ; free virtual = 5233
+Synthesis finished with 0 errors, 0 critical warnings and 237 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:51 ; elapsed = 00:00:55 . Memory (MB): peak = 1823.102 ; gain = 235.180 ; free physical = 2264 ; free virtual = 4059
+Synthesis Optimization Complete : Time (s): cpu = 00:01:01 ; elapsed = 00:01:16 . Memory (MB): peak = 1823.109 ; gain = 648.031 ; free physical = 2268 ; free virtual = 4063
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 319 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 922 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 32 instances were transformed.
-  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 32 instances
+No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-116 Infos, 112 Warnings, 0 Critical Warnings and 0 Errors encountered.
+182 Infos, 181 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:01:03 . Memory (MB): peak = 1806.473 ; gain = 644.816 ; free physical = 3437 ; free virtual = 5258
+synth_design: Time (s): cpu = 00:01:05 ; elapsed = 00:01:20 . Memory (MB): peak = 1855.117 ; gain = 693.457 ; free physical = 2296 ; free virtual = 4090
 INFO: [Common 17-1381] The checkpoint '/home/quartus/workspace/LPSC/mse_mandelbrot.runs/synth_1/mse_mandelbrot_Z.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file mse_mandelbrot_Z_utilization_synth.rpt -pb mse_mandelbrot_Z_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.20 . Memory (MB): peak = 1830.484 ; gain = 0.000 ; free physical = 3438 ; free virtual = 5260
-INFO: [Common 17-206] Exiting Vivado at Mon May 28 23:08:30 2018...
+report_utilization: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.21 . Memory (MB): peak = 1879.129 ; gain = 0.000 ; free physical = 2295 ; free virtual = 4091
+INFO: [Common 17-206] Exiting Vivado at Wed May 30 14:21:06 2018...

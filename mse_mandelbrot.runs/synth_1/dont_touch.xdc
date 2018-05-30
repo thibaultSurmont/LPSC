@@ -8,3 +8,6 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==clk_mandelbrot 
 
 # IP: ip/bram_video_memory_d786432_w9_rdclk1_wrclk1/bram_video_memory_d786432_w9_rdclk1_wrclk1.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==bram_video_memory_d786432_w9_rdclk1_wrclk1 || ORIG_REF_NAME==bram_video_memory_d786432_w9_rdclk1_wrclk1} -quiet] -quiet
+
+# IP: ip/blk_mem_iter/blk_mem_iter.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==blk_mem_iter || ORIG_REF_NAME==blk_mem_iter} -quiet] -quiet

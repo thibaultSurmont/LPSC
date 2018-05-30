@@ -227,7 +227,7 @@ begin
                         -- Change state
                         state <= FINISH_STATE;
                     -- Compare Zr² + Zi² > 4
-                    elsif (unsigned(s_real2) + unsigned(s_imaginary2)) > (to_unsigned(4, SIZE) sll 12)  then
+                    elsif (unsigned(s_real2) + unsigned(s_imaginary2)) > (to_unsigned(4, SIZE) sll point_pos)  then
                         -- finished set (result available)
                         finished    <= '1';
                         -- s_clr set (counter and registers cleared for next computation)

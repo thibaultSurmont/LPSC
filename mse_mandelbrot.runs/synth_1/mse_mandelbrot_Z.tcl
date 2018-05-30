@@ -183,6 +183,9 @@ set_property used_in_implementation false [get_files -all /home/quartus/workspac
 read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/bram_video_memory_d786432_w9_rdclk1_wrclk1/bram_video_memory_d786432_w9_rdclk1_wrclk1.xci
 set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/bram_video_memory_d786432_w9_rdclk1_wrclk1/bram_video_memory_d786432_w9_rdclk1_wrclk1_ooc.xdc]
 
+read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter.xci
+set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter_ooc.xdc]
+
 read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_640x480/clk_vga_hdmi_640x480.xci
 set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_640x480/clk_vga_hdmi_640x480_board.xdc]
 set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_640x480/clk_vga_hdmi_640x480.xdc]
@@ -222,9 +225,6 @@ read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk
 set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_board.xdc]
 set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600.xdc]
 set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/clk_vga_hdmi_1024x600/clk_vga_hdmi_1024x600_ooc.xdc]
-
-read_ip -quiet /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter.xci
-set_property used_in_implementation false [get_files -all /home/quartus/workspace/LPSC/mse_mandelbrot.srcs/sources_1/ip/blk_mem_iter/blk_mem_iter_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
